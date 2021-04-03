@@ -1,1 +1,3 @@
-# chrome100
+# chrome100.dev
+
+## ChromeOS recovery image service

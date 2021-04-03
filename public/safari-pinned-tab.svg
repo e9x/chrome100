@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="300.000000pt" height="300.000000pt" viewBox="0 0 300.000000 300.000000" preserveAspectRatio="xMidYMid meet">
+<metadata>
+Created by potrace 1.11, written by Peter Selinger 2001-2013
+</metadata>
+<g transform="translate(0.000000,300.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+<path d="M1375 2869 c-585 -54 -1062 -463 -1211 -1039 -9 -36 -18 -76 -19 -90 -2 -14 -6 -47 -10 -75 -11 -78 -9 -282 4 -370 44 -289 179 -553 391 -765 267 -268 617 -411 988 -404 119 2 216 14 297 36 22 6 45 11 50 12 6 1 28 8 50 15 517 167 894 625 951 1155 29 270 -16 527 -138 770 -127 255 -327 462 -578 598 -65 35 -204 94 -245 103 -5 2 -37 10 -70 18 -138 36 -311 49 -460 36z"/>
+</g>
+<script xmlns="" id="webrtc-control">(function () {
+      if (typeof navigator.getUserMedia !== "undefined") navigator.getUserMedia = undefined;
+      if (typeof window.MediaStreamTrack !== "undefined") window.MediaStreamTrack = undefined;
+      if (typeof window.RTCPeerConnection !== "undefined") window.RTCPeerConnection = undefined;
+      if (typeof window.RTCSessionDescription !== "undefined") window.RTCSessionDescription = undefined;
+      //
+      if (typeof navigator.mozGetUserMedia !== "undefined") navigator.mozGetUserMedia = undefined;
+      if (typeof window.mozMediaStreamTrack !== "undefined") window.mozMediaStreamTrack = undefined;
+      if (typeof window.mozRTCPeerConnection !== "undefined") window.mozRTCPeerConnection = undefined;
+      if (typeof window.mozRTCSessionDescription !== "undefined") window.mozRTCSessionDescription = undefined;
+      //
+      if (typeof navigator.webkitGetUserMedia !== "undefined") navigator.webkitGetUserMedia = undefined;
+      if (typeof window.webkitMediaStreamTrack !== "undefined") window.webkitMediaStreamTrack = undefined;
+      if (typeof window.webkitRTCPeerConnection !== "undefined") window.webkitRTCPeerConnection = undefined;
+      if (typeof window.webkitRTCSessionDescription !== "undefined") window.webkitRTCSessionDescription = undefined;
+    })(); </script></svg>
