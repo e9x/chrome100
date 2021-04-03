@@ -2,5 +2,5 @@
 	"dependencies": {
 		"sys-nodehttp": "^1.6.7"
 	},
-	"main": "server.js"
+	"main": "index.js"
 }

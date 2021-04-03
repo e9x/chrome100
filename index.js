@@ -3,7 +3,7 @@ var fs = require('fs'),
 	path = require('path'),
 	http = require('http'),
 	https = require('https'),
-	nodehttp = require('../nodehttp'),
+	nodehttp = require('sys-nodehttp'),
 	data = {
 		store: {},
 		file: path.join(__dirname, 'data.json'),
