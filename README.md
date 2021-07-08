@@ -2,6 +2,12 @@
 
 ## Collection of ChromeOS recovery images.
 
+<!-- REMOVE -->
+
+# NOTICE: Recovery images are only available on the [website](https://chrome100.dev).
+
+<!-- REMOVE -->
+
 Brought to you by SystemYA
 
 - [Why use recovery images?](#why-use-recovery-images)
