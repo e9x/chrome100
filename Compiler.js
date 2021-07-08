@@ -19,12 +19,13 @@ class Compiler {
 	assets = path.join(__dirname, 'assets');
 	web = path.join(__dirname, 'public');
 	md = path.join(this.assets, 'index.md');
-	remove_regex = /(<!-- REMOVE -->)[\s\S]*?\1/g;
+	remove = /(<!-- REMOVE -->)[\s\S]*?\1/g;
+	public_folder = /public\//g;
 	constructor(data){
 		this.data = data;
 	}
 	markdown(code){
-		return `<div class='markdown-body'>${marked(code.toString().replace(this.remove_regex, ''))}</div>`;
+		return `<div class='markdown-body'>${marked(code.toString().replace(this.public_folder, '').replace(this.remove, ''))}</div>`;
 	}
 	init(){
 		this.webpack = webpack({
