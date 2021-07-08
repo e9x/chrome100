@@ -4,7 +4,9 @@
 
 <!-- REMOVE -->
 
-# NOTICE: Recovery images are only available on the [website](https://chrome100.dev).
+## Recovery images
+
+**NOTICE:** Recovery images are only available on the [website](https://chrome100.dev).
 
 <!-- REMOVE -->
 
