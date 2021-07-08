@@ -11,7 +11,7 @@
 		<meta content='/banner.webp' property='og:image' />
 	</head>
 	<body>
-		<%= require('./index.md') + compiler.markdown(compiler.recovery_table()) %>
+		<%= require('../README.md') + compiler.markdown('# Recovery images\n' + compiler.recovery_table()) %>
 		<script src='/main.js'></script>
 	</body>
 </html>
