@@ -12,6 +12,8 @@ Scraping all valid combinations of board, firmware, and ChromeOS release allows 
 
 A bulk list of ChromeOS version ids scraped from all over the web along with all firmware versions and can be found in the [consts file](consts.js).
 
+A recent scraper is found in this repo in the form of a [Tampermonkey](https://www.tampermonkey.net/) userscript.
+
 ### URL example:
 
 ```
