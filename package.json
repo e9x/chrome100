@@ -10,7 +10,6 @@
 		"node-fetch": "^2.6.1",
 		"prismjs": "^1.24.1",
 		"style-loader": "^3.0.0",
-		"sys-nodehttp": "^1.6.8",
 		"webpack": "^5.43.0"
 	},
 	"main": "index.js"
