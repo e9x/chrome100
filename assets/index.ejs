@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<title>Chrome100</title>
+		<link rel='stylesheet' href='/main.css' />
+		<meta name='viewport' content='width=device-width, initial-scale=1' />
+		<meta name='theme-color' content='#FAFAFA' />
+		<meta name='description' content='Chrome100, the one place for many ChromeOS recovery images' />
+		<meta name='twitter:card' content='summary_large_image' />
+		<meta content='/banner.webp' property='og:image' />
+	</head>
+	<body>
+		<%= require('./index.md') + compiler.markdown(compiler.recovery_table()) %>
+		<script src='/main.js'></script>
+	</body>
+</html>
