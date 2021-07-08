@@ -4,6 +4,9 @@
 
 Brought to you by SystemYA
 
+- [Why use recovery images?](#why-use-recovery-images)
+	* [Upgrading](#upgrading)
+	* [Downgranding](#downgrading)
 - [Usage](#usage)
 	* [Finding the right recovery image](#finding-the-right-recovery-image)
 	* [Burning the `.zip` file to a USB](#burning-the-zip-file-to-a-usb)
@@ -14,6 +17,22 @@ Brought to you by SystemYA
 - [API](#api)
 	* [Request recovery image](#request-recovery-image)
 	* [List of boards and versions](#list-of-boards-and-versions)
+
+# Why use recovery images?
+
+Recovery images can downgrade chromebooks to earlier versions and even upgrade if updates are blocked on the chromebook.
+
+## Upgrading:
+
+- Bypassing restrictions that prevent updating ChromeOS
+
+- Using the latest ChromeOS features
+
+## Downgrading:
+
+- Using removed features such as guest mode before enrollment
+
+- Using patched exploits
 
 # Usage
 
@@ -54,7 +73,7 @@ To find your board name visit the website `chrome://version` and find the line l
 
 4. Once finished, unplug your USB drive.
 
-## API
+# API
 
 ### Request recovery image
 
