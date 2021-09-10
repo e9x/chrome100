@@ -58,7 +58,7 @@ Recovery images have a code name associated with them also referred to as the bo
 
 To find your board name visit the website `chrome://version` and find the line labelled **Firmware Version**. It will look something like `Google_Reks.7000.100.100`. Your Chromebook's firmware version is the word after `Google_` and before a period.
 
-![ChromeOS reks version page](version.png)
+![ChromeOS reks version page](https://chrome100.dev/version.png)
 
 ### Burning the `.zip` file to a USB
 
@@ -88,7 +88,7 @@ To find your board name visit the website `chrome://version` and find the line l
 
 | Method | Endpoint  |
 | - | - |
-| `GET` | [/download](/download) |
+| `GET` | [https://chrome100.dev/download](/download) |
 
 Search query:
 
@@ -107,7 +107,7 @@ Returns a JSON object containing pairs of board names and arrays of chrome versi
 
 | Method | Endpoint |
 | - | - |
-| `GET` | [/data](/data) |
+| `GET` | [https://chrome100.dev/data](/data) |
 
 Response:
 

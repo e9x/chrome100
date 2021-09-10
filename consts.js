@@ -1,8 +1,8 @@
 'use strict';
 
-exports.keys = [0,2,3,4,5,6,7,8,9,10,11,12,13,14,15,19,23,25,17,20,22,30];
+exports.keys = [0,2,3,4,5,6,7,8,9,10,11,12,13,14,15,19,23,25,17,20,22,30,16,31];
 
-exports.boards = ["hatch","x86-mario","lumpy","stumpy","daisy","parrot","stout","link","butterfly","peppy","spring","wolf","leon","panther","pit","monroe","skate","clapper","squawks","glimmer","enguarde","expresso","zako","mccloud","quawks","gnawty","kip","swanky","big","tricky","winky","blaze","paine","candy","samus","banjo","jaq","mighty","yuna","jerry","speedy","rikku","tidus","minnie","kitty","guado","lulu","ninja","sumo","orco","gandof","mickey","heli","cyan","celes","terra","ultima","edgar","buddy","chell","sentry","lars","setzer","reks","relm","wizpig","banon","elm","cave","kefka","asuka","kevin","tiger","fievel","hana","pyro","snappy","caroline","reef","bob","sand","eve","coral","fizz","soraka","nautilus","vayne","pantheon","nami","nocturne","grunt","bobba","bobba360","octopus","liara","rammus","scarlet","leona","sarien","shyvana","kukui","jacuzzi","atlas","dedede","drallion","kalista","puff","trogdor","zork"];
+exports.boards = ["hatch","x86-mario","lumpy","stumpy","daisy","parrot","stout","link","butterfly","peppy","spring","wolf","leon","panther","pit","monroe","skate","clapper","squawks","glimmer","enguarde","expresso","zako","mccloud","quawks","gnawty","kip","swanky","big","tricky","winky","blaze","paine","candy","samus","banjo","jaq","mighty","yuna","jerry","speedy","rikku","tidus","minnie","kitty","guado","lulu","ninja","sumo","orco","gandof","mickey","heli","cyan","celes","terra","ultima","edgar","buddy","chell","sentry","lars","setzer","reks","relm","wizpig","banon","elm","cave","kefka","asuka","kevin","tiger","fievel","hana","pyro","snappy","caroline","reef","bob","sand","eve","coral","fizz","soraka","nautilus","vayne","pantheon","nami","nocturne","grunt","bobba","bobba360","octopus","liara","rammus","scarlet","leona","sarien","shyvana","kukui","jacuzzi","atlas","dedede","drallion","kalista","puff","trogdor","zork","asurada","volteer"];
 
 exports.versions = {
 	32: ["4920.83.0"],
@@ -47,4 +47,6 @@ exports.versions = {
 	89: ["13729.56.0"],
 	90: ["13816.82.0","13816.64.0"],
 	91: ["13904.55.0"],
+	92: ["13982.88.0"],
+	// 93: ["ON HOLD"],
 };

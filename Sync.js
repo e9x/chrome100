@@ -53,7 +53,7 @@ class Sync {
 						}
 						
 						if(res.status == 200){
-							console.log(board, release, url);
+							console.log('Found DL:', board, release, url);
 							
 							key_hits[key] = (key_hits[key] || 0) + 1;
 							sboard.releases[release] = { key, code };

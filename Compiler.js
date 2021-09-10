@@ -32,6 +32,7 @@ class Compiler {
 	init(){
 		this.webpack = webpack({
 			entry: path.join(this.assets, 'index.js'),
+			context: __dirname,
 			output: {
 				path: this.web,
 				filename: 'main.js',
