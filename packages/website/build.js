@@ -12,3 +12,7 @@ await fs.copy(
   "node_modules/github-markdown-css/github-markdown.css",
   "dist/static/markdown.css"
 );
+await fs.copy(
+  "node_modules/chrome-versions/lib/index.js",
+  "dist/static/chrome-versions.js"
+);

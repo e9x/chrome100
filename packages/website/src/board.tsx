@@ -1,5 +1,6 @@
 import type { cros_target, cros_recovery_image_db } from "chrome-versions";
-import { render, h } from "https://unpkg.com/preact@latest?module";
+import { getRecoveryURL } from "./chrome-versions.js";
+import { render, h, Fragment } from "https://unpkg.com/preact@latest?module";
 import {
   useEffect,
   useState,
@@ -49,14 +50,37 @@ const BoardPage = () => {
       Loading ChromeOS board <code>{board}</code>...
     </p>
   ) : (
-    <table>
-      <thead>
-        <th>Board</th>
-        <th>Brands</th>
-        <th />
-      </thead>
-      <tbody />
-    </table>
+    <>
+      <h1>
+        ChromeOS board <code>{board}</code>
+      </h1>
+      <table>
+        <thead>
+          <th>Platform Version</th>
+          <th>Chrome Version</th>
+          <th>Last Modified</th>
+          <th />
+        </thead>
+        <tbody>
+          {boardData.images
+            .sort(
+              (a, b) =>
+                new Date(a.last_modified).getTime() -
+                new Date(b.last_modified).getTime()
+            )
+            .map((img, i) => (
+              <tr key={i}>
+                <td>{img.platform}</td>
+                <td>{img.chrome}</td>
+                <td>{img.last_modified}</td>
+                <td>
+                  <a href={getRecoveryURL(img)}>Download</a>
+                </td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+    </>
   );
 };
 
