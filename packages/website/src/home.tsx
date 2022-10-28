@@ -1,5 +1,5 @@
 import type { cros_target, cros_brand } from "chrome-versions";
-import { render, h } from "https://unpkg.com/preact@latest?module";
+import { render, h, Fragment } from "https://unpkg.com/preact@latest?module";
 import {
   useEffect,
   useState,
@@ -29,35 +29,38 @@ const HomePage = () => {
   }, []);
 
   return targets === null ? (
-    <p>Loading ChromeOS targets...</p>
+    <p>Loading Chrome OS targets...</p>
   ) : (
-    <table>
-      <thead>
-        <th>Board</th>
-        <th>Brands</th>
-        <th />
-      </thead>
-      <tbody>
-        {targets.map((target, i) => (
-          <tr key={i}>
-            <td>
-              <code>{target[0].board}</code>
-            </td>
-            <td>{target[1].map((target) => target.brand).join(", ")}</td>
-            <td>
-              <a
-                style={{ whiteSpace: "nowrap" }}
-                href={`/board.html?board=${encodeURIComponent(
-                  target[0].board
-                )}`}
-              >
-                See more
-              </a>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <>
+      <h1>Chrome OS Recovery Images</h1>
+      <table>
+        <thead>
+          <th>Board</th>
+          <th>Brands</th>
+          <th />
+        </thead>
+        <tbody>
+          {targets.map((target, i) => (
+            <tr key={i}>
+              <td>
+                <code>{target[0].board}</code>
+              </td>
+              <td>{target[1].map((target) => target.brand).join(", ")}</td>
+              <td>
+                <a
+                  style={{ whiteSpace: "nowrap" }}
+                  href={`/board.html?board=${encodeURIComponent(
+                    target[0].board
+                  )}`}
+                >
+                  See more
+                </a>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
   );
 };
 

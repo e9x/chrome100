@@ -47,13 +47,13 @@ const BoardPage = () => {
 
   return boardData === null ? (
     <p>
-      Loading ChromeOS board <code>{board}</code>...
+      Loading Chrome OS board <code>{board}</code>...
     </p>
   ) : (
     <>
       <a href="/">Back</a>
       <h1>
-        ChromeOS board <code>{board}</code>
+        Chrome OS board <code>{board}</code>
       </h1>
       <table>
         <thead>
