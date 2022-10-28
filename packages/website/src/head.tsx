@@ -7,6 +7,9 @@ const Head = () => {
       <h1>Chrome100</h1>
       <ul>
         <li>
+          <a href="/">Recovery Images</a>
+        </li>
+        <li>
           <a href="/info.html">Information</a> ("What is Chrome100", "How can I
           use this?")
         </li>

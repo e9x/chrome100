@@ -18,6 +18,71 @@
     <div id="head" class="markdown-body"></div>
     <div id="root" class="markdown-body">
       <h1>Chrome100 Recovery Image Guide</h1>
+      <h2>Usage</h2>
+      <p>
+        Chrome OS recovery images come in a <code>.zip</code> file.<br />
+        You will need:
+      </p>
+      <ol>
+        <li>USB drive with at least 8 GB of storage</li>
+        <li>
+          <a
+            href="https://chrome.google.com/webstore/detail/chromebook-recovery-utili/pocpnlppkickgojjlmhdmidojbmbodfm"
+            >Chromebook Recovery Utility</a
+          >
+        </li>
+      </ol>
+      <h2>Downloading a recovery image</h2>
+      <ol>
+        <li>Go to the <a href="/">list of recovery images</a></li>
+        <li>
+          Scroll or use <kbd>CTRL</kbd> + <kbd>F</kbd> to find your board name
+        </li>
+        <li>Click on "See more"</li>
+        <li>Click on any of the "Download" links</li>
+      </ol>
+      <h2>Finding the right recovery image</h2>
+      <p>
+        Recovery images are built on a board-basis. You will need to find your
+        Chromebook's board name.<br />
+        To find your board name visit the website
+        <code>chrome://version</code> and find the line labelled
+        <bold>Firmware Version</bold>. It will look something like
+        <code>Google_Reks.7000.100.100</code>. Your Chromebook's board name
+        version is the word after <code>Google_</code> and before a period.
+      </p>
+      <img alt="Chrome OS reks version page" src="version.png" />
+      <h2>Burning the <code>.zip</code> file to a USB</h2>
+      <ol>
+        <li>
+          Open the
+          <a
+            href="https://chrome.google.com/webstore/detail/chromebook-recovery-utili/pocpnlppkickgojjlmhdmidojbmbodfm"
+            >Chromebook Recovery Utility</a
+          >
+        </li>
+        <li>
+          Click on the gears button in the top right of the window and select
+          "Use local image"
+        </li>
+        <li>
+          Navigate to the <code>.zip</code> recovery image you downloaded.
+        </li>
+        <li>Select your USB drive as prompted by the window.</li>
+        <li>Select create now.</li>
+      </ol>
+      <h2>Restoring Chrome OS from a USB drive</h2>
+      <ol>
+        <li>
+          Press <kbd>ESC</kbd> + <kbd>REFRESH</kbd> + <kbd>POWER</kbd> to enter
+          the recovery menu.
+        </li>
+        <li>
+          Plug in your USB drive you previously burnt a recovery image to.
+        </li>
+        <li>Press enter once the menu is done verifying your USB drive.</li>
+        <li>Once finished, unplug your USB drive.</li>
+      </ol>
     </div>
   </body>
 </html>
