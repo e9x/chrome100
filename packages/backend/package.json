@@ -1,0 +1,29 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "author": "SystemYA",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sysce/chrome100.git"
+  },
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "start": "node dist/server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^7.6.2",
+    "chrome-versions": "file:../../../chrome-versions",
+    "fastify": "^4.9.2"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.2",
+    "@types/node": "^18.11.3",
+    "@typescript-eslint/eslint-plugin": "^5.41.0",
+    "eslint": "^8.26.0",
+    "typescript": "^4.8.4"
+  }
+}

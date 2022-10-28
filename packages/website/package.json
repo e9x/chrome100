@@ -1,0 +1,27 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "author": "SystemYA",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sysce/chrome100.git"
+  },
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.js && tsc",
+    "build:watch": "node build.js && tsc --watch",
+    "start": "http-server ./dist/"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.41.0",
+    "chrome-versions": "file:../../../chrome-versions",
+    "eslint": "^8.26.0",
+    "fs-extra": "^10.1.0",
+    "github-markdown-css": "^5.1.0",
+    "htm": "^3.1.1",
+    "preact": "^10.11.2",
+    "typescript": "^4.8.4"
+  }
+}
