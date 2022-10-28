@@ -60,7 +60,11 @@ const BoardPage = () => {
         Chrome OS board <code>{board}</code>
       </h1>
       <h2>Brands</h2>
-      {boardData.brands.map((target) => target.brand).join(", ")}
+      <ul>
+        {boardData.brands.map((target, i) => (
+          <li key={i}>{target.brand}</li>
+        ))}
+      </ul>
       <h2>Recovery Images</h2>
       {boardData.images.length ? (
         <table>
