@@ -19,13 +19,12 @@ const getBrands = db.prepare<[board: string]>(
 type HomeData = [target: cros_target, brands: cros_brand[]][];
 
 server.get("/home", (req, reply) => {
-  const data: HomeData = [];
+  const homeData: HomeData = [];
 
-  for (const target of getTargets.all() as cros_target[]) {
-    data.push([target, getBrands.all(target.board)]);
-  }
+  for (const target of getTargets.all() as cros_target[])
+    homeData.push([target, getBrands.all(target.board)]);
 
-  reply.send(data);
+  reply.send(homeData);
 });
 
 const getTarget = db.prepare<[board: string]>(
@@ -38,6 +37,7 @@ const getRecoveryImages = db.prepare<[board: string]>(
 interface BoardData {
   target: cros_target;
   images: cros_recovery_image_db[];
+  brands: cros_brand[];
 }
 
 server.get(
@@ -60,11 +60,15 @@ server.get(
 
     const target = getTarget.get(board) as cros_target;
     const images = getRecoveryImages.all(board) as cros_recovery_image_db[];
+    const brands = getBrands.all(board) as cros_brand[];
 
-    reply.send({
+    const boardData: BoardData = {
       target,
       images,
-    } as BoardData);
+      brands,
+    };
+
+    reply.send(boardData);
   }
 );
 

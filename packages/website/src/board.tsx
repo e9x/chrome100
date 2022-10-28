@@ -1,4 +1,8 @@
-import type { cros_target, cros_recovery_image_db } from "chrome-versions";
+import type {
+  cros_target,
+  cros_recovery_image_db,
+  cros_brand,
+} from "chrome-versions";
 import { getRecoveryURL } from "./chrome-versions.js";
 import { render, h, Fragment } from "https://unpkg.com/preact@latest?module";
 import {
@@ -11,6 +15,7 @@ import { root } from "./root.js";
 interface BoardData {
   target: cros_target;
   images: cros_recovery_image_db[];
+  brands: cros_brand[];
 }
 
 const BoardPage = () => {
@@ -54,6 +59,9 @@ const BoardPage = () => {
       <h1>
         Chrome OS board <code>{board}</code>
       </h1>
+      <h2>Brands</h2>
+      {boardData.brands.map((target) => target.brand).join(", ")}
+      <h2>Recovery Images</h2>
       {boardData.images.length ? (
         <table>
           <thead>
