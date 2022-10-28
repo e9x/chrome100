@@ -51,14 +51,15 @@ const BoardPage = () => {
     </p>
   ) : (
     <>
+      <a href="/">Back</a>
       <h1>
         ChromeOS board <code>{board}</code>
       </h1>
       <table>
         <thead>
-          <th>Platform Version</th>
-          <th>Chrome Version</th>
-          <th>Last Modified</th>
+          <th>Platform</th>
+          <th>Chrome</th>
+          <th>Modified</th>
           <th />
         </thead>
         <tbody>
