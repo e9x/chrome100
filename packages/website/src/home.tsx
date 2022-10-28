@@ -38,8 +38,8 @@ const HomePage = () => {
         <th />
       </thead>
       <tbody>
-        {targets.map((target) => (
-          <tr>
+        {targets.map((target, i) => (
+          <tr key={i}>
             <td>
               <code>{target[0].board}</code>
             </td>
@@ -47,9 +47,9 @@ const HomePage = () => {
             <td>
               <a
                 style={{ whiteSpace: "nowrap" }}
-                href={
-                  "/board.html?board=" + encodeURIComponent(target[0].board)
-                }
+                href={`/board.html?board=${encodeURIComponent(
+                  target[0].board
+                )}`}
               >
                 See more
               </a>
