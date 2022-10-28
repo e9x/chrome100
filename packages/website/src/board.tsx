@@ -74,8 +74,8 @@ const BoardPage = () => {
             {boardData.images
               .sort(
                 (a, b) =>
-                  new Date(a.last_modified).getTime() -
-                  new Date(b.last_modified).getTime()
+                  new Date(b.last_modified).getTime() -
+                  new Date(a.last_modified).getTime()
               )
               .map((img, i) => (
                 <tr key={i}>
