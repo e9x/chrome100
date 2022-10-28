@@ -55,32 +55,39 @@ const BoardPage = () => {
       <h1>
         Chrome OS board <code>{board}</code>
       </h1>
-      <table>
-        <thead>
-          <th>Platform</th>
-          <th>Chrome</th>
-          <th>Modified</th>
-          <th />
-        </thead>
-        <tbody>
-          {boardData.images
-            .sort(
-              (a, b) =>
-                new Date(a.last_modified).getTime() -
-                new Date(b.last_modified).getTime()
-            )
-            .map((img, i) => (
-              <tr key={i}>
-                <td>{img.platform}</td>
-                <td>{img.chrome}</td>
-                <td>{img.last_modified}</td>
-                <td>
-                  <a href={getRecoveryURL(img)}>Download</a>
-                </td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
+      {boardData.images.length ? (
+        <table>
+          <thead>
+            <th>Platform</th>
+            <th>Chrome</th>
+            <th>Modified</th>
+            <th />
+          </thead>
+          <tbody>
+            {boardData.images
+              .sort(
+                (a, b) =>
+                  new Date(a.last_modified).getTime() -
+                  new Date(b.last_modified).getTime()
+              )
+              .map((img, i) => (
+                <tr key={i}>
+                  <td>{img.platform}</td>
+                  <td>{img.chrome}</td>
+                  <td>{img.last_modified}</td>
+                  <td>
+                    <a href={getRecoveryURL(img)}>Download</a>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      ) : (
+        <p>
+          No recovery images found. Either this board name has no images
+          available or it has not been scraped yet.
+        </p>
+      )}
     </>
   );
 };
