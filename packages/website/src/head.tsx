@@ -21,7 +21,6 @@ const Head = () => {
           <a href="https://github.com/sysce/chrome100">GitHub</a> (Source Code)
         </li>
       </ul>
-      <br />
     </>
   );
 };
