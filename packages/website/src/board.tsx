@@ -51,7 +51,6 @@ const BoardPage = () => {
     </p>
   ) : (
     <>
-      <a href="/">Back</a>
       <h1>
         Chrome OS board <code>{board}</code>
       </h1>
