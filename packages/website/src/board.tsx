@@ -1,10 +1,10 @@
 import type { BoardData } from "backend";
-import type { cros_recovery_image_db } from "./chrome-versions.js";
+import type { cros_recovery_image_db } from "https://unpkg.com/chrome-versions@latest";
 import {
   getRecoveryURL,
   parsePlatformVersion,
   parseChromeVersion,
-} from "./chrome-versions.js";
+} from "https://unpkg.com/chrome-versions@latest";
 import { render, h, Fragment } from "https://unpkg.com/preact@latest?module";
 import {
   useEffect,

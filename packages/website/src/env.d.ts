@@ -8,6 +8,6 @@ declare module "https://unpkg.com/preact@latest/hooks/dist/hooks.module.js?modul
   export * from "preact/hooks";
 }
 
-declare module "*chrome-versions.js" {
+declare module "https://unpkg.com/chrome-versions@latest" {
   export * from "chrome-versions";
 }
