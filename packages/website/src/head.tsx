@@ -18,7 +18,7 @@ const Head = () => {
           images on your chromebook)
         </li>
         <li>
-          <a href="https://github.com/sysce/chrome100">GitHub</a> (Source Code)
+          <a href="https://github.com/e9x/chrome100">GitHub</a> (Source Code)
         </li>
       </ul>
     </>

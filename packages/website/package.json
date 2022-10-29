@@ -5,7 +5,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sysce/chrome100.git"
+    "url": "https://github.com/e9x/chrome100.git"
   },
   "private": true,
   "type": "module",
