@@ -27,19 +27,22 @@ const sortImages = (
       case "chrome": {
         const av = parseChromeVersion(a.chrome);
         const bv = parseChromeVersion(b.chrome);
-        return bv[0] < av[0] && bv[1] < av[1] && bv[2] < av[2] && bv[3] < av[3]
+        return bv[0] <= av[0] &&
+          bv[1] <= av[1] &&
+          bv[2] <= av[2] &&
+          bv[3] <= av[3]
           ? 1
           : 0;
       }
       case "platform": {
         const av = parsePlatformVersion(a.platform);
         const bv = parsePlatformVersion(b.platform);
-        return bv[0] < av[0] && bv[1] < av[1] && bv[2] < av[2] ? 1 : 0;
+        return bv[0] <= av[0] && bv[1] <= av[1] && bv[2] <= av[2] ? 1 : 0;
       }
       case "lastModified":
         return (
-          new Date(b.last_modified).getTime() -
-          new Date(a.last_modified).getTime()
+          new Date(a.last_modified).getTime() -
+          new Date(b.last_modified).getTime()
         );
       default:
         throw new Error(`Unknown order ${sortOrder}`);
