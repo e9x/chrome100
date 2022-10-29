@@ -44,15 +44,23 @@
       </ol>
       <h2>Finding the right recovery image</h2>
       <p>
-        Recovery images are built on a board-basis. You will need to find your
+        Recovery images are built for individual Chromebook boards. In order to
+        download the appropriate recovery image, you will need to find your
         Chromebook's board name.<br />
-        To find your board name visit the website
-        <code>chrome://version</code> and find the line labelled
-        <bold>Firmware Version</bold>. It will look something like
-        <code>Google_Reks.7000.100.100</code>. Your Chromebook's board name
-        version is the word after <code>Google_</code> and before a period.
+        To find your board name visit the (built-in) website
+        <code>chrome://version</code> and find the "<b>Platform:</b>" row.
       </p>
-      <img alt="Chrome OS reks version page" src="/version.png" />
+      <p>It should look something like:</p>
+      <ul>
+        <li>3428.193.0 (Official Build) stable-channel <b>stumpy</b></li>
+        <li>8530.93.0 (Official Build) stable-channel <b>reks</b></li>
+      </ul>
+      <p>
+        The word (in bold) after "stable-channel" is your board name. For
+        example, the board name of the Chromebook in the following image would
+        be "reks".
+      </p>
+      <img alt="Chrome OS reks version page" src="platform.png" />
       <h2>Burning the zip file file to a USB</h2>
       <ol>
         <li>
