@@ -1,8 +1,5 @@
-import type {
-  cros_target,
-  cros_recovery_image_db,
-  cros_brand,
-} from "./chrome-versions.js";
+import type { BoardData } from "backend";
+import type { cros_recovery_image_db } from "./chrome-versions.js";
 import {
   getRecoveryURL,
   parsePlatformVersion,
@@ -15,12 +12,6 @@ import {
 } from "https://unpkg.com/preact@latest/hooks/dist/hooks.module.js?module";
 import { apiURL } from "./api.js";
 import { root } from "./root.js";
-
-interface BoardData {
-  target: cros_target;
-  images: cros_recovery_image_db[];
-  brands: cros_brand[];
-}
 
 type SortOrder = "lastModified" | "chrome" | "platform";
 

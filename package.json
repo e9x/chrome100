@@ -1,0 +1,7 @@
+{
+  "name": "chrome100",
+  "workspaces": [
+    "packages/website",
+    "packages/backend"
+  ]
+}

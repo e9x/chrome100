@@ -1,4 +1,4 @@
-import type { cros_target, cros_brand } from "chrome-versions";
+import type { HomeData } from "backend";
 import { render, h, Fragment } from "https://unpkg.com/preact@latest?module";
 import {
   useEffect,
@@ -6,8 +6,6 @@ import {
 } from "https://unpkg.com/preact@latest/hooks/dist/hooks.module.js?module";
 import { apiURL } from "./api.js";
 import { root } from "./root.js";
-
-type HomeData = [target: cros_target, brands: cros_brand[]][];
 
 const HomePage = () => {
   const [targets, setTargets] = useState<null | HomeData>(null);

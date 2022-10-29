@@ -9,6 +9,7 @@
   },
   "private": true,
   "type": "module",
+  "typings": "dist/types.d.ts",
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",

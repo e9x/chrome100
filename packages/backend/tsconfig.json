@@ -5,7 +5,8 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "esModuleInterop": true,
-    "strict": true
+    "strict": true,
+    "declaration": true
   },
   "include": ["src/*.ts"]
 }

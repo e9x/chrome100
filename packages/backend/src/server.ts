@@ -1,3 +1,4 @@
+import type { HomeData, BoardData } from "./types";
 import Database from "better-sqlite3";
 import type {
   cros_target,
@@ -16,8 +17,6 @@ const getBrands = db.prepare<[board: string]>(
   "SELECT * FROM cros_brand WHERE board = ?;"
 );
 
-type HomeData = [target: cros_target, brands: cros_brand[]][];
-
 server.get("/home", (req, reply) => {
   const homeData: HomeData = [];
 
@@ -33,12 +32,6 @@ const getTarget = db.prepare<[board: string]>(
 const getRecoveryImages = db.prepare<[board: string]>(
   "SELECT * FROM cros_recovery_image WHERE board = ?;"
 );
-
-interface BoardData {
-  target: cros_target;
-  images: cros_recovery_image_db[];
-  brands: cros_brand[];
-}
 
 server.get(
   "/board",
