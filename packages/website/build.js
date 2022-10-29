@@ -11,5 +11,4 @@ try {
 
 await cp("public", "dist", { recursive: true });
 await mkdir("dist/static/");
-await cp(require.resolve("github-markdown-css"), "dist/static/markdown.css");
 await cp(require.resolve("chrome-versions"), "dist/static/chrome-versions.js");
