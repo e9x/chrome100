@@ -15,6 +15,12 @@ import { root } from "./root.js";
 
 type SortOrder = "lastModified" | "chrome" | "platform";
 
+const sortVersions = (a: number[], b: number[]) => {
+  if (a.length !== b.length) throw new Error("array length mismatch");
+  for (let i = 0; i < a.length; i++) if (a !== b) return a[i] > b[i] ? 1 : -1;
+  return b.length - a.length;
+};
+
 const sortImages = (
   sortOrder: SortOrder,
   sortReverse: boolean,
@@ -27,17 +33,12 @@ const sortImages = (
       case "chrome": {
         const av = parseChromeVersion(a.chrome);
         const bv = parseChromeVersion(b.chrome);
-        return bv[0] <= av[0] &&
-          bv[1] <= av[1] &&
-          bv[2] <= av[2] &&
-          bv[3] <= av[3]
-          ? 1
-          : 0;
+        return sortVersions(av, bv);
       }
       case "platform": {
         const av = parsePlatformVersion(a.platform);
         const bv = parsePlatformVersion(b.platform);
-        return bv[0] <= av[0] && bv[1] <= av[1] && bv[2] <= av[2] ? 1 : 0;
+        return sortVersions(av, bv);
       }
       case "lastModified":
         return (
