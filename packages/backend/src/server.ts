@@ -12,9 +12,11 @@ const server = fastify();
 
 const db = new Database(chromeDBPath);
 
-const getTargets = db.prepare<[]>("SELECT * FROM cros_target;");
+const getTargets = db.prepare<[]>(
+  "SELECT * FROM cros_target ORDER BY board COLLATE NOCASE ASC;"
+);
 const getBrands = db.prepare<[board: string]>(
-  "SELECT * FROM cros_brand WHERE board = ?;"
+  "SELECT * FROM cros_brand WHERE board = ? ORDER BY brand COLLATE NOCASE ASC;"
 );
 
 server.get("/home", (req, reply) => {
@@ -27,7 +29,7 @@ server.get("/home", (req, reply) => {
 });
 
 const getTarget = db.prepare<[board: string]>(
-  "SELECT * FROM cros_target WHERE board = ?;"
+  "SELECT * FROM cros_target WHERE board = ? ORDER BY board COLLATE NOCASE ASC;"
 );
 const getRecoveryImages = db.prepare<[board: string]>(
   "SELECT * FROM cros_recovery_image WHERE board = ?;"
