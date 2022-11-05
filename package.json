@@ -1,7 +1,37 @@
 {
   "name": "chrome100",
-  "workspaces": [
-    "packages/website",
-    "packages/backend"
-  ]
+  "version": "1.0.0",
+  "license": "ISC",
+  "author": {
+    "name": "e9x",
+    "url": "https://github.com/e9x/chrome100.git"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/e9x/chrome100.git"
+  },
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@types/node": "18.11.9",
+    "@types/react": "18.0.25",
+    "@types/react-dom": "18.0.8",
+    "better-sqlite3": "^7.6.2",
+    "chrome-versions": "^1.0.0-beta.6",
+    "eslint": "8.26.0",
+    "eslint-config-next": "13.0.2",
+    "github-markdown-css": "^5.1.0",
+    "next": "13.0.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "4.8.4"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.2"
+  }
 }
