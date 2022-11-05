@@ -39,7 +39,7 @@ const GuidePage = () => {
         download the appropriate recovery image, you will need to find your
         Chromebook&apos;s board name.
         <br />
-        To find your board name, visit the (built-in) website
+        To find your board name, visit the (built-in) website{" "}
         <code>chrome://version</code> and find the &quot;<b>Platform:</b>&quot;
         row.
       </p>
