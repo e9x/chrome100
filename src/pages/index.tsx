@@ -1,28 +1,27 @@
-import type { Targets } from "./api/targets";
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import Heading from "../components/Heading";
+import { getBrands, getTargets } from "../db";
+import { cros_brand, cros_target } from "chrome-versions";
+import { GetServerSideProps, NextPage } from "next";
 
-const HomePage = () => {
-  const [targets, setTargets] = useState<null | Targets>(null);
+interface Props {
+  targets: [target: cros_target["board"], brands: cros_brand["brand"][]][];
+}
 
-  useEffect(() => {
-    const controller = new AbortController();
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+  return {
+    props: {
+      targets: (getTargets.all() as cros_target[]).map((target) => [
+        target.board,
+        (getBrands.all(target.board) as cros_brand[]).map(
+          (brand) => brand.brand
+        ),
+      ]),
+    },
+  };
+};
 
-    (async () => {
-      const data = await fetch("/api/targets", {
-        signal: controller.signal,
-      });
-      if (!data.ok)
-        throw new Error(`The response was not OK (got ${data.status})`);
-      setTargets(await data.json());
-    })().catch(console.error);
-
-    return () => {
-      controller.abort();
-    };
-  }, []);
-
+const HomePage: NextPage<Props> = ({ targets }) => {
   return (
     <>
       <Heading />

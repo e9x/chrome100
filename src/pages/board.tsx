@@ -1,13 +1,18 @@
-import type { BoardData } from "./api/board";
-import type { cros_recovery_image_db } from "chrome-versions";
+import type {
+  cros_brand,
+  cros_recovery_image_db,
+  cros_target,
+} from "chrome-versions";
 import {
   getRecoveryURL,
   parsePlatformVersion,
   parseChromeVersion,
 } from "chrome-versions";
-import { useEffect, useState } from "react";
+import { GetServerSideProps, NextPage } from "next";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import Heading from "../components/Heading";
+import { getBrands, getRecoveryImages, getTarget } from "../db";
 
 type SortOrder = "lastModified" | "chrome" | "platform";
 
@@ -51,124 +56,143 @@ const sortImages = (
   return sorted;
 };
 
-const BoardPage = () => {
-  const router = useRouter();
-  const board = router.query["board"];
-  const [boardData, setBoardData] = useState<null | BoardData>(null);
-  const [boardDataErr, setBoardDataErr] = useState<null | string>(null);
+enum BoardError {
+  BadRequest,
+  NotFound,
+}
+
+interface ErrorProps {
+  error: BoardError;
+}
+
+interface DataProps {
+  board: string;
+  images: cros_recovery_image_db[];
+  brands: cros_brand["brand"][];
+}
+
+type Props = ErrorProps | DataProps;
+
+const isErrorProps = (props: Props): props is ErrorProps =>
+  "error" in (props as Partial<ErrorProps>);
+
+export const getServerSideProps: GetServerSideProps<Props> = async ({
+  query,
+}) => {
+  let { board } = query;
+  if (!board)
+    return {
+      props: {
+        error: BoardError.BadRequest,
+      },
+    };
+  if (Array.isArray(board)) board = board[0];
+
+  const target = getTarget.get(board) as cros_target | undefined;
+
+  if (!target)
+    return {
+      props: {
+        error: BoardError.NotFound,
+      },
+    };
+
+  const images = getRecoveryImages.all(board) as cros_recovery_image_db[];
+  const brands = getBrands.all(board) as cros_brand[];
+
+  return {
+    props: {
+      board,
+      images: images,
+      brands: brands.map((brand) => brand.brand),
+    },
+  };
+};
+
+const BoardPage: NextPage<Props> = (props) => {
   const [sortReverse, setSortReverse] = useState(false);
   const [sortOrder, setSortOrder] = useState<SortOrder>("lastModified");
 
-  useEffect(() => {
-    if (typeof board !== "string") return;
-
-    const controller = new AbortController();
-
-    (async () => {
-      try {
-        const data = await fetch(
-          `/api/board?board=${encodeURIComponent(board)}`,
-          {
-            signal: controller.signal,
-          }
+  if (isErrorProps(props))
+    switch (props.error) {
+      case BoardError.BadRequest:
+        return (
+          <>
+            <Heading />
+            <p>
+              Bad request. (Specify the <code>?board=</code> parameter)
+            </p>
+          </>
         );
-        if (!data.ok)
-          throw new Error(`The response was not OK (got ${data.status})`);
-        setBoardData(await data.json());
-      } catch (err) {
-        setBoardDataErr(String(err));
-      }
-    })().catch(console.error);
+      case BoardError.NotFound:
+        return (
+          <>
+            <Heading />
+            <p>Unknown board.</p>
+          </>
+        );
+    }
 
-    return () => {
-      controller.abort();
-    };
-  }, [board]);
-
-  if (boardDataErr)
-    return (
-      <>
-        <Heading />
-        <p>Failure loading the board data:</p>
-        <code>{boardDataErr}</code>
-      </>
-    );
-
-  if (typeof board !== "string")
-    return (
-      <p>
-        You must specify the <code>board</code> search parameter.
-      </p>
-    );
+  const { board, brands, images } = props;
 
   return (
     <>
       <Heading />
-      {boardData === null ? (
-        <p>
-          Loading Chrome OS board <code>{board}</code>...
-        </p>
-      ) : (
-        <>
-          <h1>
-            Chrome OS board <code>{board}</code>
-          </h1>
-          <h2>Brands</h2>
-          <ul>
-            {boardData.brands.map((brand, i) => (
-              <li key={i}>{brand}</li>
+      <h1>
+        Chrome OS board <code>{board}</code>
+      </h1>
+      <h2>Brands</h2>
+      <ul>
+        {brands.map((brand, i) => (
+          <li key={i}>{brand}</li>
+        ))}
+      </ul>
+      <h2>Recovery Images</h2>
+      <h3>Sort</h3>
+      <select
+        onChange={(e) => setSortOrder(e.currentTarget.value as SortOrder)}
+      >
+        <option value="lastModified">Last Modified</option>
+        <option value="chrome">Chrome Version</option>
+        <option value="platform">Platform Version</option>
+      </select>
+      <br />
+      <label>
+        <input
+          type="checkbox"
+          onChange={(e) => setSortReverse(e.currentTarget.checked)}
+        />{" "}
+        Reverse
+      </label>
+      <h3>Boards</h3>
+      {images.length ? (
+        <table>
+          <thead>
+            <tr>
+              <th>Platform</th>
+              <th>Chrome</th>
+              <th>Modified</th>
+              <th />
+            </tr>
+          </thead>
+          <tbody>
+            {sortImages(sortOrder, sortReverse, images).map((img, i) => (
+              <tr key={i}>
+                <td>{img.platform}</td>
+                <td>{img.chrome}</td>
+                <td>{img.last_modified}</td>
+                <td>
+                  <a href={getRecoveryURL(img)}>Download</a>
+                </td>
+              </tr>
             ))}
-          </ul>
-          <h2>Recovery Images</h2>
-          <h3>Sort</h3>
-          <select
-            onChange={(e) => setSortOrder(e.currentTarget.value as SortOrder)}
-          >
-            <option value="lastModified">Last Modified</option>
-            <option value="chrome">Chrome Version</option>
-            <option value="platform">Platform Version</option>
-          </select>
-          <br />
-          <label>
-            <input
-              type="checkbox"
-              onChange={(e) => setSortReverse(e.currentTarget.checked)}
-            />{" "}
-            Reverse
-          </label>
-          <h3>Boards</h3>
-          {boardData.images.length ? (
-            <table>
-              <thead>
-                <tr>
-                  <th>Platform</th>
-                  <th>Chrome</th>
-                  <th>Modified</th>
-                  <th />
-                </tr>
-              </thead>
-              <tbody>
-                {sortImages(sortOrder, sortReverse, boardData.images).map(
-                  (img, i) => (
-                    <tr key={i}>
-                      <td>{img.platform}</td>
-                      <td>{img.chrome}</td>
-                      <td>{img.last_modified}</td>
-                      <td>
-                        <a href={getRecoveryURL(img)}>Download</a>
-                      </td>
-                    </tr>
-                  )
-                )}
-              </tbody>
-            </table>
-          ) : (
-            <p>
-              No recovery images found. Either this board name has no images
-              available or it has not been scraped yet.
-            </p>
-          )}
-        </>
+          </tbody>
+        </table>
+      ) : (
+        <p>
+          No recovery images found. Either this board name has no images
+          available or it has not been scraped yet.
+        </p>
       )}
     </>
   );
