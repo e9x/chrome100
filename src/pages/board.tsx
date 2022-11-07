@@ -100,8 +100,8 @@ const BoardPage = () => {
           </h1>
           <h2>Brands</h2>
           <ul>
-            {boardData.brands.map((target, i) => (
-              <li key={i}>{target.brand}</li>
+            {boardData.brands.map((brand, i) => (
+              <li key={i}>{brand}</li>
             ))}
           </ul>
           <h2>Recovery Images</h2>

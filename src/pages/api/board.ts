@@ -16,26 +16,23 @@ const getRecoveryImages = db.prepare<[board: string]>(
   "SELECT * FROM cros_recovery_image WHERE board = ?;"
 );
 const getBrands = db.prepare<[board: string]>(
-  "SELECT * FROM cros_brand WHERE board = ? ORDER BY brand COLLATE NOCASE ASC;"
+  "SELECT brand FROM cros_brand WHERE board = ? ORDER BY brand COLLATE NOCASE ASC;"
 );
 
 export interface BoardData {
-  target: cros_target;
   images: cros_recovery_image_db[];
-  brands: cros_brand[];
+  brands: cros_brand["brand"][];
 }
 
 const boardAPI = (req: NextApiRequest, res: NextApiResponse) => {
   const { board } = req.query as { board: string };
 
-  const target = getTarget.get(board) as cros_target;
   const images = getRecoveryImages.all(board) as cros_recovery_image_db[];
   const brands = getBrands.all(board) as cros_brand[];
 
-  const boardData: BoardData = {
-    target,
-    images,
-    brands,
+  const boardData = {
+    images: images,
+    brands: brands.map((brand) => brand.brand),
   };
 
   res.json(boardData);
