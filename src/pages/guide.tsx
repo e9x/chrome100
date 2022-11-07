@@ -70,6 +70,7 @@ const GuidePage = () => {
       <pre>
         $ unzip
         ./chromeos_8530.93.0_x86-mario_recovery_stable-channel_mario-mp-v3.bin.zip
+        <br />
         &gt; inflating:
         chromeos_8530.93.0_x86-mario_recovery_stable-channel_mario-mp-v3.bin #
         this is the filename of the raw recovery image
