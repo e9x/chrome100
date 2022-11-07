@@ -55,6 +55,7 @@ const BoardPage = () => {
   const router = useRouter();
   const board = router.query["board"];
   const [boardData, setBoardData] = useState<null | BoardData>(null);
+  const [boardDataErr, setBoardDataErr] = useState<null | string>(null);
   const [sortReverse, setSortReverse] = useState(false);
   const [sortOrder, setSortOrder] = useState<SortOrder>("lastModified");
 
@@ -64,20 +65,34 @@ const BoardPage = () => {
     const controller = new AbortController();
 
     (async () => {
-      const data = await fetch(
-        `/api/board?board=${encodeURIComponent(board)}`,
-        {
-          signal: controller.signal,
-        }
-      );
-      if (!data.ok) throw new Error("Failure fetching home data.");
-      setBoardData(await data.json());
+      try {
+        const data = await fetch(
+          `/api/board?board=${encodeURIComponent(board)}`,
+          {
+            signal: controller.signal,
+          }
+        );
+        if (!data.ok)
+          throw new Error(`The response was not OK (got ${data.status})`);
+        setBoardData(await data.json());
+      } catch (err) {
+        setBoardDataErr(String(err));
+      }
     })().catch(console.error);
 
     return () => {
       controller.abort();
     };
   }, [board]);
+
+  if (boardDataErr)
+    return (
+      <>
+        <Heading />
+        <p>Failure loading the board data:</p>
+        <code>{boardDataErr}</code>
+      </>
+    );
 
   if (typeof board !== "string")
     return (

@@ -27,6 +27,14 @@ export interface BoardData {
 const boardAPI = (req: NextApiRequest, res: NextApiResponse) => {
   const { board } = req.query as { board: string };
 
+  const target = getTarget.get(board) as cros_target | undefined;
+
+  if (!target) {
+    res.status(404);
+    res.json({ error: "NotFound" });
+    return;
+  }
+
   const images = getRecoveryImages.all(board) as cros_recovery_image_db[];
   const brands = getBrands.all(board) as cros_brand[];
 
