@@ -19,7 +19,7 @@ const GuidePage = () => {
           <a href="https://chrome.google.com/webstore/detail/chromebook-recovery-utili/pocpnlppkickgojjlmhdmidojbmbodfm">
             Chromebook Recovery Utility
           </a>{" "}
-          / DD (unix)
+          / DD (*NIX)
         </li>
       </ol>
       <h2>Downloading a recovery image</h2>
@@ -102,7 +102,7 @@ const GuidePage = () => {
       </blockquote>
       <ul>
         <li>
-          The blocksize MUST be <code>4194304</code>
+          The blocksize is recommended to be set to <code>4194304</code>.
         </li>
         <li>
           <code>conv=sync</code> is recommended to be set, especially when the
@@ -156,7 +156,7 @@ const GuidePage = () => {
       <h2>Restoring Chrome OS from a USB drive</h2>
       <ol>
         <li>
-          Press <kbd>ESC</kbd> + <kbd>REFRESH</kbd> + <kbd>POWER</kbd> to enter
+          Press <kbd>ESC</kbd> + <kbd>⟳</kbd> + <kbd>⏻</kbd> to enter
           the recovery menu.
         </li>
         <li>
