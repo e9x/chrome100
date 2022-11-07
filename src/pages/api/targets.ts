@@ -6,16 +6,19 @@ const getTargets = db.prepare<[]>(
   "SELECT * FROM cros_target ORDER BY board COLLATE NOCASE ASC;"
 );
 const getBrands = db.prepare<[board: string]>(
-  "SELECT * FROM cros_brand WHERE board = ? ORDER BY brand COLLATE NOCASE ASC;"
+  "SELECT brand FROM cros_brand WHERE board = ? ORDER BY brand COLLATE NOCASE ASC;"
 );
 
-export type Targets = [target: cros_target, brands: cros_brand[]][];
+export type Targets = [
+  target: cros_target["board"],
+  brands: cros_brand["brand"][]
+][];
 
 const targetsAPI = (req: NextApiRequest, res: NextApiResponse) => {
   res.json(
     (getTargets.all() as cros_target[]).map((target) => [
-      target,
-      getBrands.all(target.board) as cros_brand[],
+      target.board,
+      (getBrands.all(target.board) as cros_brand[]).map((brand) => brand.brand),
     ]) as Targets
   );
 };

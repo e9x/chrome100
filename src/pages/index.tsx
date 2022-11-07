@@ -43,15 +43,13 @@ const HomePage = () => {
               {targets.map((target, i) => (
                 <tr key={i}>
                   <td>
-                    <code>{target[0].board}</code>
+                    <code>{target[0]}</code>
                   </td>
-                  <td>{target[1].map((target) => target.brand).join(", ")}</td>
+                  <td>{target[1].map((target) => target).join(", ")}</td>
                   <td>
                     <Link
                       style={{ whiteSpace: "nowrap" }}
-                      href={`/board?board=${encodeURIComponent(
-                        target[0].board
-                      )}`}
+                      href={`/board?board=${encodeURIComponent(target[0])}`}
                     >
                       See more
                     </Link>
