@@ -32,9 +32,11 @@ const HomePage = () => {
           <h1>Chrome OS Recovery Images</h1>
           <table>
             <thead>
-              <th>Board</th>
-              <th>Brands</th>
-              <th />
+              <tr>
+                <th>Board</th>
+                <th>Brands</th>
+                <th />
+              </tr>
             </thead>
             <tbody>
               {targets.map((target, i) => (
