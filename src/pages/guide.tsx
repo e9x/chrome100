@@ -156,8 +156,8 @@ const GuidePage = () => {
       <h2>Restoring Chrome OS from a USB drive</h2>
       <ol>
         <li>
-          Press <kbd>ESC</kbd> + <kbd>⟳</kbd> + <kbd>⏻</kbd> to enter
-          the recovery menu.
+          Press <kbd>ESC</kbd> + <kbd>⟳</kbd> + <kbd>⏻</kbd> to enter the
+          recovery menu.
         </li>
         <li>
           Plug in your USB drive you previously burnt a recovery image to.
