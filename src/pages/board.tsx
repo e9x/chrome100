@@ -125,10 +125,12 @@ const BoardPage = () => {
           {boardData.images.length ? (
             <table>
               <thead>
-                <th>Platform</th>
-                <th>Chrome</th>
-                <th>Modified</th>
-                <th />
+                <tr>
+                  <th>Platform</th>
+                  <th>Chrome</th>
+                  <th>Modified</th>
+                  <th />
+                </tr>
               </thead>
               <tbody>
                 {sortImages(sortOrder, sortReverse, boardData.images).map(
