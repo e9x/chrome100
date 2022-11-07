@@ -1,9 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import Database from "better-sqlite3";
 import type { cros_brand, cros_target } from "chrome-versions";
-import { chromeDBPath } from "chrome-versions/db";
-
-const db = new Database(chromeDBPath);
+import db from "../../db";
 
 const getTargets = db.prepare<[]>(
   "SELECT * FROM cros_target ORDER BY board COLLATE NOCASE ASC;"
