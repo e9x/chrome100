@@ -11,9 +11,7 @@ const InfoPage = () => {
         Chrome100 is a directory of recovery images for Google&apos;s operating
         system Chrome OS.
       </p>
-      <h2>
-        For what purpose are you collecting thousands of Chrome OS builds!?
-      </h2>
+      <h2>Why are you collecting thousands of Chrome OS builds!?</h2>
       <p>
         Chrome OS recovery images are a necessity for any IT admins or a Chrome
         OS hobbyist. Chrome OS recovery images can be used to repair broken
