@@ -13,7 +13,8 @@ const HomePage = () => {
       const data = await fetch("/api/targets", {
         signal: controller.signal,
       });
-      if (!data.ok) throw new Error("Failure fetching home data.");
+      if (!data.ok)
+        throw new Error(`The response was not OK (got ${data.status})`);
       setTargets(await data.json());
     })().catch(console.error);
 
