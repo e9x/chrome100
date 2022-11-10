@@ -9,7 +9,6 @@ import {
   parseChromeVersion,
 } from "chrome-versions";
 import { GetServerSideProps, NextPage } from "next";
-import { useRouter } from "next/router";
 import { useState } from "react";
 import Heading from "../components/Heading";
 import { getBrands, getRecoveryImages, getTarget } from "../db";
