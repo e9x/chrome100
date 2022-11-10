@@ -48,7 +48,7 @@ const HomePage: NextPage<Props> = ({ targets }) => {
                   <td>
                     <Link
                       style={{ whiteSpace: "nowrap" }}
-                      href={`/board?board=${encodeURIComponent(target[0])}`}
+                      href={`/board/${encodeURIComponent(target[0])}`}
                     >
                       See more
                     </Link>
