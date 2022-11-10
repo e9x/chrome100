@@ -10,8 +10,8 @@ import {
 } from "chrome-versions";
 import { GetServerSideProps, NextPage } from "next";
 import { useState } from "react";
-import Heading from "../components/Heading";
-import { getBrands, getRecoveryImages, getTarget } from "../db";
+import Heading from "../../components/Heading";
+import { getBrands, getRecoveryImages, getTarget } from "../../db";
 
 type SortOrder = "lastModified" | "chrome" | "platform";
 
