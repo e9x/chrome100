@@ -109,7 +109,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
 };
 
 const BoardPage: NextPage<Props> = (props) => {
-  const [sortReverse, setSortReverse] = useState(false);
+  const [sortReverse, setSortReverse] = useState(true);
   const [sortOrder, setSortOrder] = useState<SortOrder>("lastModified");
 
   if (isErrorProps(props))
