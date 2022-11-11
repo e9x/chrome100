@@ -32,6 +32,6 @@ jobs:
         uses: wearerequired/lint-action@v2
         with:
           eslint: true
+          eslint_extensions: js,ts,tsx
           prettier: true
-
-          name: Continuous Integration
+          prettier_extensions: js,ts,tsx,json,md
