@@ -24,7 +24,6 @@
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "better-sqlite3": "^7.6.2",
     "chrome-versions": "^1.0.0-beta.6",
-    "eslint": "8.26.0",
     "eslint-config-next": "13.0.2",
     "github-markdown-css": "^5.1.0",
     "next": "13.0.2",
@@ -34,6 +33,8 @@
     "typescript": "4.8.4"
   },
   "devDependencies": {
-    "@types/better-sqlite3": "^7.6.2"
+    "@types/better-sqlite3": "^7.6.2",
+    "eslint": "^8.27.0",
+    "prettier": "^2.7.1"
   }
 }
