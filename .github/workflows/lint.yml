@@ -16,11 +16,11 @@ jobs:
     runs-on: [self-hosted, linux]
 
     steps:
-      - name: Check out Git repository
+      - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v1
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
         with:
           node-version: 18
 
