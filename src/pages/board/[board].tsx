@@ -109,7 +109,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
 };
 
 const BoardPage: NextPage<Props> = (props) => {
-  const [sortReverse, setSortReverse] = useState(false);
+  const [sortReverse, setSortReverse] = useState(true);
   const [sortOrder, setSortOrder] = useState<SortOrder>("lastModified");
 
   if (isErrorProps(props))
@@ -159,6 +159,7 @@ const BoardPage: NextPage<Props> = (props) => {
       <label>
         <input
           type="checkbox"
+          defaultChecked={sortReverse}
           onChange={(e) => setSortReverse(e.currentTarget.checked)}
         />{" "}
         Reverse
