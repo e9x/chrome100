@@ -159,6 +159,7 @@ const BoardPage: NextPage<Props> = (props) => {
       <label>
         <input
           type="checkbox"
+          defaultChecked={sortReverse}
           onChange={(e) => setSortReverse(e.currentTarget.checked)}
         />{" "}
         Reverse
