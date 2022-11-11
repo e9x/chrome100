@@ -33,12 +33,12 @@ const sortImages = (
       case "chrome": {
         const av = parseChromeVersion(a.chrome);
         const bv = parseChromeVersion(b.chrome);
-        return sortVersions(av, bv).reverse();
+        return sortVersions(av, bv);
       }
       case "platform": {
         const av = parsePlatformVersion(a.platform);
         const bv = parsePlatformVersion(b.platform);
-        return sortVersions(av, bv).reverse();
+        return sortVersions(av, bv);
       }
       case "lastModified":
         return (
