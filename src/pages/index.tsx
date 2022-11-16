@@ -40,7 +40,7 @@ const HomePage: NextPage<Props> = ({ targets }) => {
               <td>
                 <code>{target[0]}</code>
               </td>
-              <td>{target[1].map((target) => target).join(", ")}</td>
+              <td>{target[1].join(", ")}</td>
               <td>
                 <Link
                   style={{ whiteSpace: "nowrap" }}
