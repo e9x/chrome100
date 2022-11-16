@@ -35,16 +35,16 @@ const HomePage: NextPage<Props> = ({ targets }) => {
           </tr>
         </thead>
         <tbody>
-          {targets.map((target, i) => (
+          {targets.map(([target, brands], i) => (
             <tr key={i}>
               <td>
-                <code>{target[0]}</code>
+                <code>{target}</code>
               </td>
-              <td>{target[1].join(", ")}</td>
+              <td>{brands.join(", ")}</td>
               <td>
                 <Link
                   style={{ whiteSpace: "nowrap" }}
-                  href={`/board/${encodeURIComponent(target[0])}`}
+                  href={`/board/${encodeURIComponent(target)}`}
                 >
                   See more
                 </Link>
