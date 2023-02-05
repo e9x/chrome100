@@ -24,15 +24,15 @@
     "@types/react-dom": "18.0.8",
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "better-sqlite3": "^7.6.2",
-    "chrome-versions": "^1.0.0-beta.6",
+    "chrome-versions": "^1.0.1",
     "eslint": "^8.27.0",
     "eslint-config-next": "13.0.2",
     "github-markdown-css": "^5.1.0",
     "next": "13.0.2",
+    "prettier": "^2.7.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sharp": "^0.31.2",
-    "typescript": "4.8.4",
-    "prettier": "^2.7.1"
+    "typescript": "4.8.4"
   }
 }
