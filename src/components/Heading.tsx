@@ -20,16 +20,13 @@ const Heading = () => {
           <Link href="/">Recovery Images</Link>
         </li>
         <li>
-          <Link href="/info">Information</Link> (&quot;What is Chrome100&quot;,
-          &quot;How can I use this?&quot;)
+          <Link href="/info">Explanation</Link>
         </li>
         <li>
-          <Link href="/guide">Guide</Link> (Walkthrough of using these recovery
-          images on your chromebook)
+          <Link href="/guide">Walkthrough</Link>
         </li>
         <li>
-          <Link href="https://github.com/e9x/chrome100">GitHub</Link> (Source
-          Code)
+          <Link href="https://github.com/e9x/chrome100">Source Code</Link>
         </li>
       </ul>
     </>
