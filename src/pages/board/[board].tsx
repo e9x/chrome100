@@ -9,6 +9,7 @@ import {
   parseChromeVersion,
 } from "chrome-versions";
 import { GetServerSideProps, NextPage } from "next";
+import Link from "next/link";
 import { useState } from "react";
 import Heading from "../../components/Heading";
 import { getBrands, getRecoveryImages, getTarget } from "../../db";
@@ -144,15 +145,17 @@ const BoardPage: NextPage<Props> = (props) => {
         Chrome OS board <code>{board}</code>
       </h1>
       <h2>RMA Shim</h2>
-      {shim ? (
-        <p>
+      <p>
+        {shim ? (
           <a href={shim.url}>Download</a>
-        </p>
-      ) : (
-        <p>
-          No RMA shim was found for <code>{board}</code>.
-        </p>
-      )}
+        ) : (
+          <>
+            No RMA shim was found for <code>{board}</code>.
+          </>
+        )}
+        <br />
+        Click <Link href="/info#shim">here</Link> for more information
+      </p>
       <h2>Brands</h2>
       <ul>
         {brands.map((brand, i) => (
