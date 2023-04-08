@@ -12,6 +12,7 @@ import { GetServerSideProps, NextPage } from "next";
 import { useState } from "react";
 import Heading from "../../components/Heading";
 import { getBrands, getRecoveryImages, getTarget } from "../../db";
+import { shims } from "../../shim";
 
 type SortOrder = "lastModified" | "chrome" | "platform";
 
@@ -134,12 +135,24 @@ const BoardPage: NextPage<Props> = (props) => {
 
   const { board, brands, images } = props;
 
+  const shim = shims.find((shim) => shim.codename === board);
+
   return (
     <>
       <Heading />
       <h1>
         Chrome OS board <code>{board}</code>
       </h1>
+      <h2>RMA Shim</h2>
+      {shim ? (
+        <p>
+          <a href={shim.url}>Download</a>
+        </p>
+      ) : (
+        <p>
+          No RMA shim was found for <code>{board}</code>.
+        </p>
+      )}
       <h2>Brands</h2>
       <ul>
         {brands.map((brand, i) => (
