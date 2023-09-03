@@ -31,20 +31,6 @@ const InfoPage = () => {
         Yes. Although your IT admin may notice you&apos;re on an earlier version
         of Chrome OS (which often goes unnoticed).
       </p>
-      <h2 id="shim">What are RMA shims?</h2>
-      <p>
-        RMA shims are disk images stored on USB devices that contain a
-        combination of the ChromeOS factory bundle components used to reinstall
-        the operating system and tools for performing repair and diagnostics.
-        <br />
-        The Sh1mmer exploit uses publicly leaked RMA shims to modify the
-        management of enrollment of devices. It allows users to unenroll
-        enterprise-managed Chromebooks and bypass device restrictions. It was
-        developed by security researchers from the Mercury Workshop Team.
-        <br />
-        <br />
-        For more information, see <a href="https://sh1mmer.me/">sh1mmer.me</a>.
-      </p>
       <h2>Where do I get started?</h2>
       <p>
         See the <Link href="/guide">guide</Link>.
