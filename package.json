@@ -24,7 +24,7 @@
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.5.0",
     "better-sqlite3": "^8.6.0",
-    "chrome-versions": "^1.0.3",
+    "chrome-versions": "^1.0.4",
     "eslint": "^8.48.0",
     "eslint-config-next": "^13.4.19",
     "github-markdown-css": "^5.2.0",
