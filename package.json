@@ -18,21 +18,21 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/better-sqlite3": "^7.6.3",
-    "@types/node": "^18.11.19",
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
-    "@typescript-eslint/eslint-plugin": "^5.50.0",
-    "better-sqlite3": "^7.6.2",
+    "@types/better-sqlite3": "^7.6.4",
+    "@types/node": "^18.17.14",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.5.0",
+    "better-sqlite3": "^8.6.0",
     "chrome-versions": "^1.0.3",
-    "eslint": "^8.33.0",
-    "eslint-config-next": "^13.1.6",
-    "github-markdown-css": "^5.1.0",
-    "next": "^13.1.6",
-    "prettier": "^2.8.3",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "sharp": "^0.31.2",
-    "typescript": "^4.9.5"
+    "eslint": "^8.48.0",
+    "eslint-config-next": "^13.4.19",
+    "github-markdown-css": "^5.2.0",
+    "next": "^13.4.19",
+    "prettier": "^3.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sharp": "^0.32.5",
+    "typescript": "^5.2.2"
   }
 }
