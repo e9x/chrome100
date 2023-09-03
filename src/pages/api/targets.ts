@@ -12,9 +12,9 @@ const targetsAPI = (req: NextApiRequest, res: NextApiResponse) => {
     (target) => ({
       target: target.board,
       brands: (getBrands.all(target.board) as cros_brand[]).map(
-        (brand) => brand.brand
+        (brand) => brand.brand,
       ),
-    })
+    }),
   );
 
   res.json(targetData);

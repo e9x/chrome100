@@ -24,7 +24,7 @@ const sortVersions = (a: number[], b: number[]) => {
 const sortImages = (
   sortOrder: SortOrder,
   sortReverse: boolean,
-  images: Readonly<cros_recovery_image_db[]>
+  images: Readonly<cros_recovery_image_db[]>,
 ) => {
   const sorted = [...images];
 

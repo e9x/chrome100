@@ -14,7 +14,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
       targets: (getTargets.all() as cros_target[]).map((target) => [
         target.board,
         (getBrands.all(target.board) as cros_brand[]).map(
-          (brand) => brand.brand
+          (brand) => brand.brand,
         ),
       ]),
     },
