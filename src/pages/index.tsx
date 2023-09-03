@@ -2,13 +2,13 @@ import Link from "next/link";
 import Heading from "../components/Heading";
 import { getBrands, getTargets } from "../db";
 import { cros_brand, cros_target } from "chrome-versions";
-import { GetServerSideProps, NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 
 interface Props {
   targets: [target: cros_target["board"], brands: cros_brand["brand"][]][];
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       targets: (getTargets.all() as cros_target[]).map((target) => [

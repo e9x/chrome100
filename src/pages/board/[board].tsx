@@ -8,10 +8,10 @@ import {
   parsePlatformVersion,
   parseChromeVersion,
 } from "chrome-versions";
-import { GetServerSideProps, NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import { useState } from "react";
 import Heading from "../../components/Heading";
-import { getBrands, getRecoveryImages, getTarget } from "../../db";
+import { getBrands, getRecoveryImages, getTarget, getTargets } from "../../db";
 
 type SortOrder = "lastModified" | "chrome" | "platform";
 
@@ -75,10 +75,10 @@ type Props = ErrorProps | DataProps;
 const isErrorProps = (props: Props): props is ErrorProps =>
   "error" in (props as Partial<ErrorProps>);
 
-export const getServerSideProps: GetServerSideProps<Props> = async ({
-  query,
+export const getStaticProps: GetStaticProps<Props> = async ({
+  params,
 }) => {
-  let { board } = query;
+  let board = params?.board || "";
   if (!board)
     return {
       props: {
@@ -199,3 +199,15 @@ const BoardPage: NextPage<Props> = (props) => {
 };
 
 export default BoardPage;
+
+// This function gets called at build time
+export async function getStaticPaths() {
+  // We'll pre-render only these paths at build time.
+  // { fallback: false } means other routes should 404.
+  return {
+    paths: (getTargets.all() as cros_target[]).map(target => ({
+      params: { board: target.board }
+    })),
+    fallback: false,
+  };
+}
