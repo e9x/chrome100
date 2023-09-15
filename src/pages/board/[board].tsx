@@ -13,7 +13,7 @@ import { useState } from "react";
 import Heading from "../../components/Heading";
 import { getBrands, getRecoveryImages, getTarget, getTargets } from "../../db";
 import Link from "next/link";
-import { shims } from "../../shim";
+import { Shim, shimMirrors } from "../../shim";
 
 type SortOrder = "lastModified" | "chrome" | "platform";
 
@@ -136,7 +136,7 @@ const BoardPage: NextPage<Props> = (props) => {
 
   const { board, brands, images } = props;
 
-  const shim = shims.find((shim) => shim.codename === board);
+  const boardShims = shimMirrors.map(mirror => [mirror.name, mirror.shims.find((shim) => shim.codename === board)] as [name: string, shim: Shim | undefined]).filter(e => e[1]) as [name: string, shim: Shim][];
 
   return (
     <>
@@ -146,16 +146,17 @@ const BoardPage: NextPage<Props> = (props) => {
       </h1>
       <h2>RMA Shim</h2>
       <p>
-        {shim ? (
-          <a href={shim.url}>Download</a>
-        ) : (
+        {boardShims.length ? boardShims.map((e, i) => (<>
+          <a href={e[1].url} key={i}>Download ({e[0]})</a>
+          <br />
+        </>)) : (
           <>
             No RMA shim was found for <code>{board}</code>.
           </>
         )}
         <br />
         Click <Link href="/info#shim">here</Link> for more information
-      </p>
+      </p >
       <h2>Brands</h2>
       <ul>
         {brands.map((brand, i) => (
@@ -181,35 +182,37 @@ const BoardPage: NextPage<Props> = (props) => {
         Reverse
       </label>
       <h3>Boards</h3>
-      {images.length ? (
-        <table>
-          <thead>
-            <tr>
-              <th>Platform</th>
-              <th>Chrome</th>
-              <th>Modified</th>
-              <th />
-            </tr>
-          </thead>
-          <tbody>
-            {sortImages(sortOrder, sortReverse, images).map((img, i) => (
-              <tr key={i}>
-                <td>{img.platform}</td>
-                <td>{img.chrome}</td>
-                <td>{img.last_modified}</td>
-                <td>
-                  <a href={getRecoveryURL(img)}>Download</a>
-                </td>
+      {
+        images.length ? (
+          <table>
+            <thead>
+              <tr>
+                <th>Platform</th>
+                <th>Chrome</th>
+                <th>Modified</th>
+                <th />
               </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : (
-        <p>
-          No recovery images found. Either this board name has no images
-          available or it has not been scraped yet.
-        </p>
-      )}
+            </thead>
+            <tbody>
+              {sortImages(sortOrder, sortReverse, images).map((img, i) => (
+                <tr key={i}>
+                  <td>{img.platform}</td>
+                  <td>{img.chrome}</td>
+                  <td>{img.last_modified}</td>
+                  <td>
+                    <a href={getRecoveryURL(img)}>Download</a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <p>
+            No recovery images found. Either this board name has no images
+            available or it has not been scraped yet.
+          </p>
+        )
+      }
     </>
   );
 };
