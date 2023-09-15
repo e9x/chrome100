@@ -4,104 +4,35 @@ export type Shim = {
 };
 
 export const shims: Shim[] = [
+  { url: "https://dl.diffusehyperion.me/rma/brask.zip", codename: "brask" },
+  { url: "https://dl.diffusehyperion.me/rma/brya.zip", codename: "brya" },
+  { url: "https://dl.diffusehyperion.me/rma/clapper.zip", codename: "clapper" },
+  { url: "https://dl.diffusehyperion.me/rma/coral.zip", codename: "coral" },
+  { url: "https://dl.diffusehyperion.me/rma/corsola.zip", codename: "corsola" },
+  { url: "https://dl.diffusehyperion.me/rma/dedede.zip", codename: "dedede" },
   {
-    url: "https://dl.sh1mmer.me/raw%20shims/brask.bin",
-    codename: "brask",
-  },
-  {
-    url: "https://dl.sh1mmer.me/raw%20shims/brya.bin",
-    codename: "brya",
-  },
-  {
-    url: "https://dl.sh1mmer.me/raw%20shims/clapper.bin",
-    codename: "clapper",
-  },
-  {
-    url: "https://dl.sh1mmer.me/raw%20shims/coral.bin",
-    codename: "coral",
-  },
-  {
-    url: "https://dl.sh1mmer.me/raw%20shims/corsola.bin",
-    codename: "corsola",
-  },
-  {
-    url: "https://dl.sh1mmer.me/raw%20shims/dedede.bin",
-    codename: "dedede",
-  },
-  {
-    url: "https://dl.sh1mmer.me/raw%20shims/enguarde.bin",
+    url: "https://dl.diffusehyperion.me/rma/enguarde.zip",
     codename: "enguarde",
   },
+  { url: "https://dl.diffusehyperion.me/rma/glimmer.zip", codename: "glimmer" },
+  { url: "https://dl.diffusehyperion.me/rma/grunt.zip", codename: "grunt" },
+  { url: "https://dl.diffusehyperion.me/rma/hana.zip", codename: "hana" },
+  { url: "https://dl.diffusehyperion.me/rma/hatch.zip", codename: "hatch" },
+  { url: "https://dl.diffusehyperion.me/rma/jacuzzi.zip", codename: "jacuzzi" },
+  { url: "https://dl.diffusehyperion.me/rma/kukui.zip", codename: "kukui" },
+  { url: "https://dl.diffusehyperion.me/rma/nami.zip", codename: "nami" },
+  { url: "https://dl.diffusehyperion.me/rma/octopus.zip", codename: "octopus" },
+  { url: "https://dl.diffusehyperion.me/rma/orco.zip", codename: "orco" },
+  { url: "https://dl.diffusehyperion.me/rma/pyro.zip", codename: "pyro" },
+  { url: "https://dl.diffusehyperion.me/rma/reks.zip", codename: "reks" },
+  { url: "https://dl.diffusehyperion.me/rma/sentry.zip", codename: "sentry" },
+  { url: "https://dl.diffusehyperion.me/rma/stout.zip", codename: "stout" },
   {
-    url: "https://dl.sh1mmer.me/raw%20shims/glimmer.bin",
-    codename: "glimmer",
-  },
-  {
-    url: "https://dl.sh1mmer.me/raw%20shims/grunt.bin",
-    codename: "grunt",
-  },
-  {
-    url: "https://dl.sh1mmer.me/raw%20shims/hana.bin",
-    codename: "hana",
-  },
-  {
-    url: "https://dl.sh1mmer.me/raw%20shims/hatch.bin",
-    codename: "hatch",
-  },
-  {
-    url: "https://dl.sh1mmer.me/raw%20shims/jacuzzi.bin",
-    codename: "jacuzzi",
-  },
-  {
-    url: "https://dl.sh1mmer.me/raw%20shims/kukui.bin",
-    codename: "kukui",
-  },
-  {
-    url: "https://dl.sh1mmer.me/raw%20shims/nami.bin",
-    codename: "nami",
-  },
-  {
-    url: "https://dl.sh1mmer.me/raw%20shims/octopus.bin",
-    codename: "octopus",
-  },
-  {
-    url: "https://dl.sh1mmer.me/raw%20shims/orco.bin",
-    codename: "orco",
-  },
-  {
-    url: "https://dl.sh1mmer.me/raw%20shims/pyro.bin",
-    codename: "pyro",
-  },
-  {
-    url: "https://dl.sh1mmer.me/raw%20shims/reks.bin",
-    codename: "reks",
-  },
-  {
-    url: "https://dl.sh1mmer.me/raw%20shims/sentry.bin",
-    codename: "sentry",
-  },
-  {
-    url: "https://dl.sh1mmer.me/raw%20shims/stout.bin",
-    codename: "stout",
-  },
-  {
-    url: "https://dl.sh1mmer.me/raw%20shims/strongbad.bin",
+    url: "https://dl.diffusehyperion.me/rma/strongbad.zip",
     codename: "strongbad",
   },
-  {
-    url: "https://dl.sh1mmer.me/raw%20shims/tidus.bin",
-    codename: "tidus",
-  },
-  {
-    url: "https://dl.sh1mmer.me/raw%20shims/ultima.bin",
-    codename: "ultima",
-  },
-  {
-    url: "https://dl.sh1mmer.me/raw%20shims/volteer.bin",
-    codename: "volteer",
-  },
-  {
-    url: "https://dl.sh1mmer.me/raw%20shims/zork.bin",
-    codename: "zork",
-  },
+  { url: "https://dl.diffusehyperion.me/rma/tidus.zip", codename: "tidus" },
+  { url: "https://dl.diffusehyperion.me/rma/ultima.zip", codename: "ultima" },
+  { url: "https://dl.diffusehyperion.me/rma/volteer.zip", codename: "volteer" },
+  { url: "https://dl.diffusehyperion.me/rma/zork.zip", codename: "zork" },
 ];
