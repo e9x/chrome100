@@ -9,7 +9,7 @@ import {
   parseChromeVersion,
 } from "chrome-versions";
 import type { GetStaticProps, NextPage } from "next";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import Heading from "../../components/Heading";
 import { getBrands, getRecoveryImages, getTarget, getTargets } from "../../db";
 import Link from "next/link";
@@ -146,15 +146,15 @@ const BoardPage: NextPage<Props> = (props) => {
       </h1>
       <h2>RMA Shim</h2>
       <p>
-        {boardShims.length ? boardShims.map((e, i) => (<>
-          <a href={e[1].url} key={i}>Download ({e[0]})</a>
+        {boardShims.length ? boardShims.map((e, i) => (<Fragment key={i}>
+          <a href={e[1].url}>Download ({e[0]})</a>
           <br />
-        </>)) : (
+        </Fragment>)) : (
           <>
             No RMA shim was found for <code>{board}</code>.
+            <br />
           </>
         )}
-        <br />
         Click <Link href="/info#shim">here</Link> for more information
       </p >
       <h2>Brands</h2>
