@@ -88,6 +88,7 @@ export const shimMirrors: ShimMirror[] = [
       { url: "https://dl.osu.bio/SH1mmer/hana.zip", codename: "hana" },
       { url: "https://dl.osu.bio/SH1mmer/hatch.zip", codename: "hatch" },
       { url: "https://dl.osu.bio/SH1mmer/jacuzzi.zip", codename: "jacuzzi" },
+      { url: "https://dl.osu.bio/SH1mmer/kefka.zip", codename: "kefka" },
       { url: "https://dl.osu.bio/SH1mmer/kukui.zip", codename: "kukui" },
       { url: "https://dl.osu.bio/SH1mmer/lulu.zip", codename: "lulu" },
       { url: "https://dl.osu.bio/SH1mmer/nami.zip", codename: "nami" },
