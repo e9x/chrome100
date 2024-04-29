@@ -79,13 +79,26 @@ export const shimMirrors: ShimMirror[] = [
   {
     name: "DiffuseHyperion Mirror",
     shims: [
-      { url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/brask.zip", codename: "brask" },
-      { url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/brya.zip", codename: "brya" },
+      { 
+        url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/ambassador.zip", 
+        codename: "ambassador" 
+      },
+      { 
+        url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/brask.zip", 
+        codename: "brask" 
+      },
+      { 
+        url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/brya.zip", 
+        codename: "brya" 
+      },
       {
         url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/clapper.zip",
         codename: "clapper",
       },
-      { url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/coral.zip", codename: "coral" },
+      { 
+        url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/coral.zip", 
+        codename: "coral" 
+      },
       {
         url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/corsola.zip",
         codename: "corsola",
@@ -102,34 +115,75 @@ export const shimMirrors: ShimMirror[] = [
         url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/glimmer.zip",
         codename: "glimmer",
       },
-      { url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/grunt.zip", codename: "grunt" },
-      { url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/hana.zip", codename: "hana" },
-      { url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/hatch.zip", codename: "hatch" },
+      { 
+        url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/grunt.zip", 
+        codename: "grunt" 
+      },
+      { 
+        url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/hana.zip", 
+        codename: "hana"
+      },
+      { 
+        url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/hatch.zip", 
+        codename: "hatch" 
+      },
       {
         url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/jacuzzi.zip",
         codename: "jacuzzi",
       },
-      { url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/kefka.zip", codename: "kefka" },
-      { url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/kukui.zip", codename: "kukui" },
-      { url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/nami.zip", codename: "nami" },
-      { url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/nissa.zip", codename: "nissa" },
+      { 
+        url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/kefka.zip", 
+        codename: "kefka" 
+      },
+      { 
+        url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/kukui.zip", 
+        codename: "kukui" 
+      },
+      { 
+        url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/lulu.zip", 
+        codename: "lulu" 
+      },
+      { 
+        url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/nami.zip", 
+        codename: "nami" 
+      },
+      { 
+        url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/nissa.zip", 
+        codename: "nissa" 
+
+      },
       {
         url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/octopus.zip",
         codename: "octopus",
       },
-      { url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/orco.zip", codename: "orco" },
-      { url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/pyro.zip", codename: "pyro" },
-      { url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/reks.zip", codename: "reks" },
+      { 
+        url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/orco.zip", 
+        codename: "orco" 
+      },
+      { 
+        url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/pyro.zip", 
+        codename: "pyro" 
+      },
+      { 
+        url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/reks.zip",
+        codename: "reks"
+      },
       {
         url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/sentry.zip",
         codename: "sentry",
       },
-      { url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/stout.zip", codename: "stout" },
+      { 
+        url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/stout.zip", 
+        codename: "stout" 
+      },
       {
         url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/strongbad.zip",
         codename: "strongbad",
       },
-      { url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/tidus.zip", codename: "tidus" },
+      { 
+        url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/tidus.zip", 
+        codename: "tidus" 
+      },
       {
         url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/ultima.zip",
         codename: "ultima",
@@ -138,7 +192,10 @@ export const shimMirrors: ShimMirror[] = [
         url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/volteer.zip",
         codename: "volteer",
       },
-      { url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/zork.zip", codename: "zork" },
+      { 
+        url: "https://dl.diffusehyperion.com/api/raw/?path=/rma/zork.zip", 
+        codename: "zork" 
+      },
     ],
   },
   {
