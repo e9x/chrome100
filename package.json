@@ -4,7 +4,7 @@
   "license": "ISC",
   "author": {
     "name": "e9x",
-    "url": "https://github.com/e9x/chrome100.git"
+    "url": "https://github.com/e9x"
   },
   "repository": {
     "type": "git",
@@ -22,11 +22,8 @@
     "@types/node": "^18.17.14",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
-    "@typescript-eslint/eslint-plugin": "^6.5.0",
     "better-sqlite3": "^8.6.0",
     "chrome-versions": "^1.0.4",
-    "eslint": "^8.48.0",
-    "eslint-config-next": "^13.4.19",
     "github-markdown-css": "^5.2.0",
     "next": "^13.4.19",
     "prettier": "^3.0.3",
