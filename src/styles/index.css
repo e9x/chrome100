@@ -1,3 +1,7 @@
 body.markdown-body {
   margin: 0px 15px;
 }
+
+.markdown-body > .header {
+  margin-top: 24px !important; /* override github-markdown css */
+}

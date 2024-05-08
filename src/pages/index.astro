@@ -1,0 +1,46 @@
+---
+import { getBrands, getTargets } from "@lib/db";
+import type { cros_brand, cros_target } from "chrome-versions";
+import MainLayout from "@layouts/MainLayout.astro";
+
+const targets = (getTargets.all() as cros_target[]).map(
+  (target) =>
+    [
+      target.board,
+      (getBrands.all(target.board) as cros_brand[]).map((brand) => brand.brand),
+    ] as [string, string[]]
+);
+---
+
+<MainLayout>
+  <h1>Chrome OS Recovery Images</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Board</th>
+        <th>Brands</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        targets.map(([target, brands]) => (
+          <tr>
+            <td>
+              <code>{target}</code>
+            </td>
+            <td>{brands.join(", ")}</td>
+            <td>
+              <a
+                style="white-space: nowrap"
+                href={`/board/${encodeURI(target)}`}
+              >
+                See more
+              </a>
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</MainLayout>

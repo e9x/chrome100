@@ -1,0 +1,36 @@
+---
+import "github-markdown-css/github-markdown.css";
+import "@styles/index.css";
+---
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Chrome 100</title>
+    <meta
+      name="description"
+      content="Chrome100 is a directory of recovery images for Google's operating system Chrome OS."
+    />
+    <meta name="og:image" content="/banner.webp" />
+    <meta name="theme-color" content="#FAFAFA" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body class="markdown-body">
+    <h1 class="header">Chrome100</h1>
+    <ul>
+      <li>
+        <a href="/">Recovery Images</a>
+      </li>
+      <li>
+        <a href="/info">Explanation</a>
+      </li>
+      <li>
+        <a href="/guide">Walkthrough</a>
+      </li>
+      <li>
+        <a href="https://github.com/e9x/chrome100">Source Code</a>
+      </li>
+    </ul>
+    <slot />
+  </body>
+</html>
