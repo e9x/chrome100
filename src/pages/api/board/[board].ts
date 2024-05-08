@@ -1,4 +1,5 @@
 import { getBrands, getRecoveryImages, getTarget } from "@lib/db";
+import { getShims } from "@lib/shim";
 import type { APIRoute } from "astro";
 import {
   getRecoveryURL,
@@ -14,6 +15,8 @@ export const GET: APIRoute = ({ params: { board } }) => {
   const images = getRecoveryImages.all(board) as cros_recovery_image_db[];
   const brands = getBrands.all(board) as cros_brand[];
 
+  const shims = getShims(board);
+
   return new Response(
     JSON.stringify({
       images: images.map((image) => {
@@ -23,6 +26,7 @@ export const GET: APIRoute = ({ params: { board } }) => {
         return data;
       }),
       brands,
+      shims,
     }),
     {
       headers: {

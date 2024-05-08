@@ -6,7 +6,7 @@ import type {
 } from "chrome-versions";
 import { getRecoveryURL } from "chrome-versions";
 import { getBrands, getRecoveryImages, getTarget } from "@lib/db";
-import { type Shim, shimMirrors } from "@lib/shim";
+import { getShims } from "@lib/shim";
 import MainLayout from "@layouts/MainLayout.astro";
 
 const board = Astro.params.board;
@@ -29,15 +29,7 @@ if (!target) {
   Astro.response.statusText = "Not found";
 }
 
-const boardShims = shimMirrors
-  .map(
-    (mirror) =>
-      [mirror.name, mirror.shims.find((shim) => shim.codename === board)] as [
-        name: string,
-        shim: Shim | undefined,
-      ]
-  )
-  .filter((e) => e[1]) as [name: string, shim: Shim][];
+const shims = getShims(board);
 ---
 
 <MainLayout>
@@ -49,10 +41,10 @@ const boardShims = shimMirrors
         </h1>
         <h2>RMA Shim</h2>
         <p>
-          {boardShims.length ? (
-            boardShims.map((e) => (
+          {shims.length ? (
+            shims.map((e) => (
               <>
-                <a href={e[1].url}>Download ({e[0]})</a>
+                <a href={e.url}>Download ({e.mirror})</a>
                 <br />
               </>
             ))

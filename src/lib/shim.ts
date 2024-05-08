@@ -8,6 +8,20 @@ export type ShimMirror = {
   shims: Shim[];
 };
 
+export interface ResolvedShim {
+  mirror: string;
+  url: string;
+}
+
+export function getShims(codename: string) {
+  const res: ResolvedShim[] = [];
+  for (const mirror of shimMirrors) {
+    const shim = mirror.shims.find((shim) => shim.codename === codename);
+    if (shim) res.push({ mirror: mirror.name, url: shim.url });
+  }
+  return res;
+}
+
 export const shimMirrors: ShimMirror[] = [
   {
     name: "NotDarkn Mirror",
