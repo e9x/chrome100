@@ -1,6 +1,12 @@
 ---
 import "github-markdown-css/github-markdown.css";
 import "@styles/index.css";
+
+interface Props {
+  hideHeader?: boolean;
+}
+
+const { hideHeader } = Astro.props;
 ---
 
 <html>
@@ -16,21 +22,27 @@ import "@styles/index.css";
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body class="markdown-body">
-    <h1 class="header">Chrome100</h1>
-    <ul>
-      <li>
-        <a href="/">Recovery Images</a>
-      </li>
-      <li>
-        <a href="/info">Explanation</a>
-      </li>
-      <li>
-        <a href="/guide">Walkthrough</a>
-      </li>
-      <li>
-        <a href="https://github.com/e9x/chrome100">Source Code</a>
-      </li>
-    </ul>
+    {
+      !hideHeader && (
+        <>
+          <h1 class="header">Chrome100</h1>
+          <ul>
+            <li>
+              <a href="/">Recovery Images</a>
+            </li>
+            <li>
+              <a href="/info">Explanation</a>
+            </li>
+            <li>
+              <a href="/guide">Walkthrough</a>
+            </li>
+            <li>
+              <a href="https://github.com/e9x/chrome100">Source Code</a>
+            </li>
+          </ul>
+        </>
+      )
+    }
     <slot />
   </body>
 </html>
