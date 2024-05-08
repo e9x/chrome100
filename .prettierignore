@@ -1,2 +1,3 @@
-.next
-.github
+lib/shim.ts
+dist
+.astro
