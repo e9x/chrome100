@@ -130,7 +130,7 @@ const shims = getShims(board);
     let imageSortOrder: SortOrder =
       "imageSortOrder" in localStorage
         ? (localStorage.imageSortOrder as SortOrder)
-        : "lastModified";
+        : "chrome";
 
     const inputImageSortOrder =
       document.querySelector<HTMLInputElement>("#imageSortOrder");
