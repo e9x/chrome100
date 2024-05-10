@@ -5,11 +5,20 @@ import type {
   cros_target,
 } from "chrome-versions";
 import { getRecoveryURL } from "chrome-versions";
-import { getBrands, getRecoveryImages, getTarget } from "@lib/db";
+import { getBrands, getRecoveryImages, getTarget, getTargets } from "@lib/db";
 import { getShims } from "@lib/shim";
 import MainLayout from "@layouts/MainLayout.astro";
+import type { GetStaticPaths } from "astro";
 
-const board = Astro.params.board;
+export const getStaticPaths: GetStaticPaths = () => {
+  const targets = getTargets.all() as cros_target[];
+
+  return targets.map((target) => ({
+    params: { board: target.board },
+  }));
+};
+
+const board = Astro.params.board.toString();
 
 let target: cros_target | undefined;
 let images: cros_recovery_image_db[];

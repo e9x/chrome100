@@ -8,6 +8,10 @@ import {
   type cros_target,
 } from "chrome-versions";
 
+// unfortunately we can't pre-render without losing content-type
+// but prerendering works fine
+export const prerender = false;
+
 export const GET: APIRoute = ({ params: { board } }) => {
   const target = getTarget.get(board) as cros_target | undefined;
   if (!target) return new Response(null, { status: 404 });
