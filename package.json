@@ -26,7 +26,7 @@
     "@types/node": "^18.17.14",
     "astro": "^4.7.1",
     "better-sqlite3": "^8.6.0",
-    "chrome-versions": "^1.1.1",
+    "chrome-versions": "^1.1.2",
     "github-markdown-css": "^5.2.0",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2"
