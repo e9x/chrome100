@@ -1,0 +1,21 @@
+{{define "header"}}<h1 class="header">Chrome100</h1>
+<ul>
+  <li><a href="/">Recovery Images</a></li>
+  <li><a href="/info">Explanation</a></li>
+  <li><a href="/guide">Walkthrough</a></li>
+  <li><a href="https://github.com/e9x/chrome100">Source Code</a></li>
+</ul>{{end}}
+{{define "base"}}<!DOCTYPE html><html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Chrome100 is a directory of recovery images for Google's operating system Chrome OS." />
+    <meta name="og:image" content="/banner.webp" />
+    <meta name="theme-color" content="#FAFAFA" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="/index.css" />
+    {{template "head" .}}
+  </head>
+  <body class="markdown-body">
+    {{template "body" .}}
+  </body>
+</html>{{end}}

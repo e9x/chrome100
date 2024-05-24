@@ -1,0 +1,9 @@
+@import "github-markdown-css";
+
+body.markdown-body {
+  margin: 15px 15px;
+}
+
+.markdown-body > .header {
+  margin-top: 24px !important; /* override github-markdown css */
+}

@@ -1,0 +1,25 @@
+{{define "head"}}
+  <title>Chrome100</title>
+{{end}}
+{{define "body"}}
+  {{template "header" .}}
+  <h1>Chrome OS Recovery Images</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Board</th>
+        <th>Brands</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{range .}}
+        <tr>
+          <td><code>{{.Board}}</code></td>
+          <td>{{.Brands}}</td>
+          <td><a style="white-space: nowrap" href="/board/{{.Board}}">See more</a></td>
+        </tr>
+      {{end}}
+    </tbody>
+  </table>
+{{end}}
