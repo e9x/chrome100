@@ -1,24 +1,25 @@
 {{define "header"}}
 <nav>
-  <a class="logo" href="/"><img src="/icon.png"><span>Chrome100</span></a>
+  <a class="logo" href="/"><img alt="chrome" src="/icon.png"><span>Chrome100</span></a>
   <div class="filter"></div>
   <div class="links">
-    <div class="hide"><img src="/close_24dp_FILL0_wght400_GRAD0_opsz24.svg"></div>
+    <div class="hide" alt="hide"><img src="/close_24dp_FILL0_wght400_GRAD0_opsz24.svg"></div>
     <a href="/">Recovery Images</a>
     <a href="/info">Explanation</a>
     <a href="/guide">Walkthrough</a>
-    <a class="sourcecode" href="https://github.com/e9x/chrome100"><img src="/github.svg"><span class="mobile-text">Source Code</span></a>
+    <a class="sourcecode" aria-label="Source Code" href="https://github.com/e9x/chrome100"><img alt="github" src="/github.svg"><span class="mobile-text">Source Code</span></a>
   </div>
-  <img class="expand" src="/menu_24dp_FILL0_wght400_GRAD0_opsz24.svg">
+  <img class="expand" alt="expand" src="/menu_24dp_FILL0_wght400_GRAD0_opsz24.svg">
 </nav>
 {{end}}
-{{define "base"}}<!DOCTYPE html><html>
+{{define "base"}}<!DOCTYPE html><html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="description" content="Chrome100 is a directory of recovery images for Google's operating system Chrome OS." />
     <meta name="og:image" content="/banner.webp" />
     <meta name="theme-color" content="#FAFAFA" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/index.css" />
     <script src="/nav.js" defer></script>
     {{template "head" .}}
