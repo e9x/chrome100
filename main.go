@@ -201,7 +201,7 @@ func main() {
 
 	// build board js when script is ran
 	api.Build(api.BuildOptions{
-		EntryPoints:       []string{"views/board.ts", "views/index.css"},
+		EntryPoints:       []string{"views/nav.ts", "views/board.ts", "views/index.css"},
 		Outdir:            "static/",
 		Bundle:            true,
 		Write:             true,

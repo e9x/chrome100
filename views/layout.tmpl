@@ -1,12 +1,15 @@
 {{define "header"}}
 <nav>
-  <a class="logo" href="/"><img width="25" height="25" src="/icon.png">Chrome100</a>
+  <a class="logo" href="/"><img src="/icon.png"><span>Chrome100</span></a>
+  <div class="filter"></div>
   <div class="links">
+    <div class="hide"><img src="/close_24dp_FILL0_wght400_GRAD0_opsz24.svg"></div>
     <a href="/">Recovery Images</a>
     <a href="/info">Explanation</a>
     <a href="/guide">Walkthrough</a>
-    <a class="sourcecode" href="https://github.com/e9x/chrome100"><img width="25" height="25" src="/github.svg"></a>
+    <a class="sourcecode" href="https://github.com/e9x/chrome100"><img src="/github.svg"><span class="mobile-text">Source Code</span></a>
   </div>
+  <img class="expand" src="/menu_24dp_FILL0_wght400_GRAD0_opsz24.svg">
 </nav>
 {{end}}
 {{define "base"}}<!DOCTYPE html><html>
@@ -17,6 +20,7 @@
     <meta name="theme-color" content="#FAFAFA" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="stylesheet" href="/index.css" />
+    <script src="/nav.js" defer></script>
     {{template "head" .}}
   </head>
   <body class="markdown-body">
