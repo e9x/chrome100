@@ -40,6 +40,7 @@ func main() {
 			// load our own 404 page if we can't find the file
 			_, err := os.Open(path.Join("static/", path.Clean(r.URL.Path))) // Do not allow path traversals.
 			if os.IsNotExist(err) {
+				w.WriteHeader(404)
 				var buf bytes.Buffer
 				err := tmpl["404"].ExecuteTemplate(&buf, "base", nil)
 				if err == nil {
