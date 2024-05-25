@@ -1,16 +1,26 @@
 @import "github-markdown-css/github-markdown-light.css";
 
-.content {
-  margin: 15px;
-}
-
 nav {
   display: flex;
   align-items: center;
   border-bottom: 1px solid #ccc;
-  height: 50px;
+  height: 51px;
   line-height: 50px;
   padding: 0 3vw;
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+}
+
+body.markdown-body {
+  margin: 15px;
+}
+
+body.nav {
+  margin-top: 51px;
 }
 
 nav .links {
@@ -47,10 +57,6 @@ nav .logo {
 
 nav .logo:hover {
   text-decoration: none;
-}
-
-.markdown-body > .header {
-  margin-top: 24px !important; /* override github-markdown css */
 }
 
 nav .expand,
@@ -111,4 +117,8 @@ nav a span.mobile-text {
   nav.expanded .hide {
     display: flex;
   }
+}
+
+.board {
+  white-space: nowrap;
 }

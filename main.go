@@ -27,10 +27,10 @@ func main() {
 
 	// tmpl := template.Must(template.ParseGlob("views/*.tmpl"))
 	tmpl := make(map[string]*template.Template)
-	tmpl["index"] = template.Must(template.ParseFiles("views/index.tmpl", "views/layout.tmpl"))
-	tmpl["board"] = template.Must(template.ParseFiles("views/board.tmpl", "views/layout.tmpl"))
-	tmpl["info"] = template.Must(template.ParseFiles("views/info.tmpl", "views/layout.tmpl"))
-	tmpl["guide"] = template.Must(template.ParseFiles("views/guide.tmpl", "views/layout.tmpl"))
+	tmpl["index"] = template.Must(template.ParseFiles("views/index.tmpl", "views/navlayout.tmpl"))
+	tmpl["board"] = template.Must(template.ParseFiles("views/board.tmpl", "views/navlayout.tmpl"))
+	tmpl["info"] = template.Must(template.ParseFiles("views/info.tmpl", "views/navlayout.tmpl"))
+	tmpl["guide"] = template.Must(template.ParseFiles("views/guide.tmpl", "views/navlayout.tmpl"))
 	tmpl["404"] = template.Must(template.ParseFiles("views/404.tmpl", "views/layout.tmpl"))
 
 	static := http.FileServer(http.Dir("static/"))
