@@ -1,7 +1,50 @@
-@import "github-markdown-css";
+@import "github-markdown-css/github-markdown-light.css";
 
-body.markdown-body {
-  margin: 15px 15px;
+.content {
+  margin: 15px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 3vw;
+}
+
+nav .links {
+  display: flex;
+  margin-left: auto;
+  height: 100%;
+  gap: 5px;
+}
+
+/* include .markdown-body in selector to override markdown css */
+.markdown-body nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body nav .links a:hover {
+  text-decoration: underline;
+}
+
+nav a {
+  padding: 0 10px;
+}
+
+nav .sourcecode, nav .logo {
+  display: flex;
+  align-items: center;
+}
+
+nav .logo:hover {
+  text-decoration: none;
+}
+
+nav .logo img {
+  margin-right: 5px;
 }
 
 .markdown-body > .header {

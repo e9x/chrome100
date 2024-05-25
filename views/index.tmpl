@@ -3,23 +3,25 @@
 {{end}}
 {{define "body"}}
   {{template "header" .}}
-  <h1>Chrome OS Recovery Images</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Board</th>
-        <th>Brands</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      {{range .}}
+  <div class="content">
+    <h1>Chrome OS Recovery Images</h1>
+    <table>
+      <thead>
         <tr>
-          <td><code>{{.Board}}</code></td>
-          <td>{{.Brands}}</td>
-          <td><a style="white-space: nowrap" href="/board/{{.Board}}">See more</a></td>
+          <th>Board</th>
+          <th>Brands</th>
+          <th></th>
         </tr>
-      {{end}}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        {{range .}}
+          <tr>
+            <td><code>{{.Board}}</code></td>
+            <td>{{.Brands}}</td>
+            <td><a style="white-space: nowrap" href="/board/{{.Board}}">See more</a></td>
+          </tr>
+        {{end}}
+      </tbody>
+    </table>
+  </div>
 {{end}}

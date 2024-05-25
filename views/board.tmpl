@@ -4,60 +4,62 @@
 {{end}}
 {{define "body"}}
   {{template "header" .}}
-  <h1>Chrome OS board <code>{{.Board}}</code></h1>
-  <h2>RMA Shim</h2>
-  <p>
-    {{if .Shims|len}}
-      {{range .Shims}}
-        <a href="{{.URL}}">Download ({{.Mirror}})</a>
+  <div class="content">
+    <h1>Chrome OS board <code>{{.Board}}</code></h1>
+    <h2>RMA Shim</h2>
+    <p>
+      {{if .Shims|len}}
+        {{range .Shims}}
+          <a href="{{.URL}}">Download ({{.Mirror}})</a>
+          <br />
+        {{end}}
+      {{else}}
+        No RMA shim was found for <code>{{.Board}}</code>.
         <br />
       {{end}}
-    {{else}}
-      No RMA shim was found for <code>{{.Board}}</code>.
-      <br />
-    {{end}}
-    Click <a href="/info#shim">here</a> for more information
-  </p>
-  <h2>Recovery Images</h2>
-  <h3>Sort</h3>
-  <select id="imageSortOrder">
-    <option value="lastModified">Last Modified</option>
-    <option value="chrome">Chrome Version</option>
-    <option value="platform">Platform Version</option>
-  </select>
-  <label><input type="checkbox" id="imageSortReverse" /> Reverse</label>
-  <h3>Boards</h3>
-  {{if .Images|len}}
-    <table>
-      <thead>
-        <tr>
-          <th>Platform</th>
-          <th>Chrome</th>
-          <th>Modified</th>
-          <th />
-        </tr>
-      </thead>
-      <tbody id="recoveryImages">
-        {{range .Images}}
-          <tr data-platform="{{.Img.Platform}}" data-chrome="{{.Chrome}}" data-modified="{{.LastModified}}">
-            <td>{{.Img.Platform}}</td>
-            <td>{{.Chrome}}</td>
-            <td>{{.LastModified}}</td>
-            <td><a href="{{.Img.URL}}">Download</a></td>
-          </tr>
-        {{end}}
-      </tbody>
-    </table>
-  {{else}}
-    <p>
-      No recovery images found. Either this board name has no images
-      available or it has not been scraped yet.
+      Click <a href="/info#shim">here</a> for more information
     </p>
-  {{end}}
-  <h2>Brands</h2>
-  <ul>
-    {{range .Brands}}
-      <li>{{.}}</li>
+    <h2>Recovery Images</h2>
+    <h3>Sort</h3>
+    <select id="imageSortOrder">
+      <option value="lastModified">Last Modified</option>
+      <option value="chrome">Chrome Version</option>
+      <option value="platform">Platform Version</option>
+    </select>
+    <label><input type="checkbox" id="imageSortReverse" /> Reverse</label>
+    <h3>Boards</h3>
+    {{if .Images|len}}
+      <table>
+        <thead>
+          <tr>
+            <th>Platform</th>
+            <th>Chrome</th>
+            <th>Modified</th>
+            <th />
+          </tr>
+        </thead>
+        <tbody id="recoveryImages">
+          {{range .Images}}
+            <tr data-platform="{{.Img.Platform}}" data-chrome="{{.Chrome}}" data-modified="{{.LastModified}}">
+              <td>{{.Img.Platform}}</td>
+              <td>{{.Chrome}}</td>
+              <td>{{.LastModified}}</td>
+              <td><a href="{{.Img.URL}}">Download</a></td>
+            </tr>
+          {{end}}
+        </tbody>
+      </table>
+    {{else}}
+      <p>
+        No recovery images found. Either this board name has no images
+        available or it has not been scraped yet.
+      </p>
     {{end}}
-  </ul>
+    <h2>Brands</h2>
+    <ul>
+      {{range .Brands}}
+        <li>{{.}}</li>
+      {{end}}
+    </ul>
+  </div>
 {{end}}
