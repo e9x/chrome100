@@ -177,6 +177,23 @@ func main() {
 		}
 	})
 
+	// fix path dirs
+	http.HandleFunc("/board/{name}/", func(w http.ResponseWriter, r *http.Request) {
+		boardName := r.PathValue("name")
+		w.Header().Set("location", "/board/"+boardName)
+		w.WriteHeader(308)
+	})
+
+	http.HandleFunc("/guide/", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("location", "/guide")
+		w.WriteHeader(308)
+	})
+
+	http.HandleFunc("/info/", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("location", "/info")
+		w.WriteHeader(308)
+	})
+
 	// static stuff
 	http.HandleFunc("/info", func(w http.ResponseWriter, r *http.Request) {
 		var buf bytes.Buffer
