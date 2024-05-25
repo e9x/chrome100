@@ -91,10 +91,13 @@ func main() {
 
 		if target == nil {
 			w.WriteHeader(404)
-			err := tmpl["board"].ExecuteTemplate(w, "base", nil)
-
+			var buf bytes.Buffer
+			err := tmpl["404"].ExecuteTemplate(&buf, "base", nil)
+			if err == nil {
+				err = m.Minify("text/html", w, &buf)
+			}
 			if err != nil {
-				fmt.Fprintf(os.Stderr, "Rendering board 404: %v\n", err)
+				fmt.Fprintf(os.Stderr, "Rendering 404: %v\n", err)
 			}
 			return
 		}
