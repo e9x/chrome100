@@ -18,12 +18,6 @@
     {{end}}
     Click <a href="/info#shim">here</a> for more information
   </p>
-  <h2>Brands</h2>
-  <ul>
-    {{range .Brands}}
-      <li>{{.}}</li>
-    {{end}}
-  </ul>
   <h2>Recovery Images</h2>
   <h3>Sort</h3>
   <select id="imageSortOrder">
@@ -60,4 +54,10 @@
       available or it has not been scraped yet.
     </p>
   {{end}}
+  <h2>Brands</h2>
+  <ul>
+    {{range .Brands}}
+      <li>{{.}}</li>
+    {{end}}
+  </ul>
 {{end}}
