@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"os"
 	"path"
+	"strconv"
 	"strings"
 
 	"github.com/evanw/esbuild/pkg/api"
@@ -215,7 +216,13 @@ func main() {
 		LogLevel: api.LogLevelInfo,
 	})
 
-	address := "127.0.0.1:8080"
+	port := 8080
+
+	if envPort, err := strconv.Atoi(os.Getenv("PORT")); err == nil {
+		port = envPort
+	}
+
+	address := "127.0.0.1:" + strconv.Itoa(port)
 	fmt.Println("Listening on http://" + address)
 	log.Fatal(http.ListenAndServe(address, nil))
 }
