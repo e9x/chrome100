@@ -5,25 +5,25 @@
 {{define "body"}}
   <h1>Chrome OS board <code>{{.Board}}</code></h1>
   <h2>RMA Shim</h2>
-  <p>
-    {{if .Shims|len}}
+  {{if .Shims|len}}
+    <ul>
       {{range .Shims}}
-        <a href="{{.URL}}">Download ({{.Mirror}})</a>
-        <br />
+        <li><a href="{{.URL}}">Download ({{.Mirror}})</a></li>
       {{end}}
-    {{else}}
-      No RMA shim was found for <code>{{.Board}}</code>.
-      <br />
-    {{end}}
-    Click <a href="/info#shim">here</a> for more information
-  </p>
+    </ul>
+  {{else}}
+    <p>No RMA shim was found for <code>{{.Board}}</code>.</p>
+  {{end}}
+  <p>See the <a href="/info#shim">guide</a> for more information.</p>
   <h2>Recovery Images</h2>
   <h3>Sort</h3>
-  <select id="imageSortOrder">
-    <option value="lastModified">Last Modified</option>
-    <option value="chrome">Chrome Version</option>
-    <option value="platform">Platform Version</option>
-  </select>
+  <label aria-label="order">
+    <select id="imageSortOrder">
+      <option value="lastModified">Last Modified</option>
+      <option value="chrome">Chrome Version</option>
+      <option value="platform">Platform Version</option>
+    </select>
+  </label>
   <label><input type="checkbox" id="imageSortReverse" /> Reverse</label>
   <h3>Boards</h3>
   {{if .Images|len}}
