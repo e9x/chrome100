@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"os"
 	"path"
+	"regexp"
 	"strconv"
 	"strings"
 
@@ -17,6 +18,15 @@ import (
 	"github.com/tdewolff/minify/v2"
 	"github.com/tdewolff/minify/v2/html"
 )
+
+func getTheme(r *http.Request) string {
+	theme := "light"
+	c, err := r.Cookie("theme")
+	if err == nil && c.Value == "dark" {
+		theme = "dark"
+	}
+	return theme
+}
 
 func main() {
 	db := openChromeVersions()
@@ -42,7 +52,9 @@ func main() {
 			if os.IsNotExist(err) {
 				w.WriteHeader(404)
 				var buf bytes.Buffer
-				err := tmpl["404"].ExecuteTemplate(&buf, "base", nil)
+				err := tmpl["404"].ExecuteTemplate(&buf, "base", struct {
+					Theme string
+				}{Theme: getTheme(r)})
 				if err == nil {
 					err = m.Minify("text/html", w, &buf)
 				}
@@ -58,20 +70,25 @@ func main() {
 
 		targets := getTargets(db)
 
-		// boards with brands
-		tbs := make([]struct {
+		type TB struct {
 			Board  string
 			Brands string
-		}, len(targets))
+		}
 
-		for i := range tbs {
+		// boards with brands
+		boards := make([]TB, len(targets))
+
+		for i := range boards {
 			target := &targets[i]
-			tbs[i].Board = target.Board
-			tbs[i].Brands = strings.Join(getBrands(db, target.Board), ", ")
+			boards[i].Board = target.Board
+			boards[i].Brands = strings.Join(getBrands(db, target.Board), ", ")
 		}
 
 		var buf bytes.Buffer
-		err := tmpl["index"].ExecuteTemplate(&buf, "base", tbs)
+		err := tmpl["index"].ExecuteTemplate(&buf, "base", struct {
+			Theme  string
+			Boards []TB
+		}{Theme: getTheme(r), Boards: boards})
 		if err == nil {
 			err = m.Minify("text/html", w, &buf)
 		}
@@ -89,12 +106,15 @@ func main() {
 			Brands []string
 			Images []cros_types.CROS_RECO_IMG_DB
 			Shims  []ResolvedShim
+			Theme  string
 		}
 
 		if target == nil {
 			w.WriteHeader(404)
 			var buf bytes.Buffer
-			err := tmpl["404"].ExecuteTemplate(&buf, "base", nil)
+			err := tmpl["404"].ExecuteTemplate(&buf, "base", struct {
+				Theme string
+			}{Theme: getTheme(r)})
 			if err == nil {
 				err = m.Minify("text/html", w, &buf)
 			}
@@ -113,6 +133,7 @@ func main() {
 			Brands: getBrands(db, boardName),
 			Images: images,
 			Shims:  shims,
+			Theme:  getTheme(r),
 		})
 		if err == nil {
 			err = m.Minify("text/html", w, &buf)
@@ -197,7 +218,9 @@ func main() {
 	// static stuff
 	http.HandleFunc("/info", func(w http.ResponseWriter, r *http.Request) {
 		var buf bytes.Buffer
-		err := tmpl["info"].ExecuteTemplate(&buf, "base", nil)
+		err := tmpl["info"].ExecuteTemplate(&buf, "base", struct {
+			Theme string
+		}{Theme: getTheme(r)})
 		if err == nil {
 			err = m.Minify("text/html", w, &buf)
 		}
@@ -208,7 +231,9 @@ func main() {
 
 	http.HandleFunc("/guide", func(w http.ResponseWriter, r *http.Request) {
 		var buf bytes.Buffer
-		err := tmpl["guide"].ExecuteTemplate(&buf, "base", nil)
+		err := tmpl["guide"].ExecuteTemplate(&buf, "base", struct {
+			Theme string
+		}{Theme: getTheme(r)})
 		if err == nil {
 			err = m.Minify("text/html", w, &buf)
 		}
@@ -219,7 +244,7 @@ func main() {
 
 	// build board js when script is ran
 	api.Build(api.BuildOptions{
-		EntryPoints:       []string{"views/nav.ts", "views/board.ts", "views/index.css"},
+		EntryPoints:       []string{"views/theme.ts", "views/nav.ts", "views/board.ts", "views/index.css"},
 		Outdir:            "static/",
 		Bundle:            true,
 		Write:             true,
@@ -233,6 +258,17 @@ func main() {
 		Platform: api.PlatformBrowser,
 		LogLevel: api.LogLevelInfo,
 	})
+
+	// patch the output CSS so we have more control over the color variables
+	out, err := os.ReadFile("static/index.css")
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Reading output css: %v\n", err)
+		os.Exit(1)
+	}
+	reg := regexp.MustCompile(`@media \(prefers-color-scheme: (\w+)\)\{\.markdown-body,\[data-theme=\w+\]\{(.*?)\}\}`)
+	// captures theme (light, dark) and raw rules
+	out = reg.ReplaceAll(out, []byte("[data-theme=$1]{$2}"))
+	os.WriteFile("static/index.css", out, 0644)
 
 	port := 8080
 
