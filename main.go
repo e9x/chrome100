@@ -43,6 +43,20 @@ func main() {
 	tmpl["guide"] = template.Must(template.ParseFiles("views/guide.tmpl", "views/navlayout.tmpl"))
 	tmpl["404"] = template.Must(template.ParseFiles("views/404.tmpl", "views/layout.tmpl"))
 
+	render404 := func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(404)
+		var buf bytes.Buffer
+		err := tmpl["404"].ExecuteTemplate(&buf, "base", struct {
+			Theme string
+		}{Theme: getTheme(r)})
+		if err == nil {
+			err = m.Minify("text/html", w, &buf)
+		}
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Rendering 404: %v\n", err)
+		}
+	}
+
 	static := http.FileServer(http.Dir("static/"))
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -50,18 +64,7 @@ func main() {
 			// load our own 404 page if we can't find the file
 			_, err := os.Open(path.Join("static/", path.Clean(r.URL.Path))) // Do not allow path traversals.
 			if os.IsNotExist(err) {
-				w.WriteHeader(404)
-				var buf bytes.Buffer
-				err := tmpl["404"].ExecuteTemplate(&buf, "base", struct {
-					Theme string
-				}{Theme: getTheme(r)})
-				if err == nil {
-					err = m.Minify("text/html", w, &buf)
-				}
-				if err != nil {
-					fmt.Fprintf(os.Stderr, "Rendering 404: %v\n", err)
-					return
-				}
+				render404(w, r)
 			} else {
 				static.ServeHTTP(w, r)
 			}
@@ -110,17 +113,7 @@ func main() {
 		}
 
 		if target == nil {
-			w.WriteHeader(404)
-			var buf bytes.Buffer
-			err := tmpl["404"].ExecuteTemplate(&buf, "base", struct {
-				Theme string
-			}{Theme: getTheme(r)})
-			if err == nil {
-				err = m.Minify("text/html", w, &buf)
-			}
-			if err != nil {
-				fmt.Fprintf(os.Stderr, "Rendering 404: %v\n", err)
-			}
+			render404(w, r)
 			return
 		}
 
@@ -201,7 +194,11 @@ func main() {
 	// fix path dirs
 	http.HandleFunc("/board/{name}/", func(w http.ResponseWriter, r *http.Request) {
 		boardName := r.PathValue("name")
-		w.Header().Set("location", "/board/"+boardName)
+		if boardName == "" {
+
+		} else {
+			w.Header().Set("location", "/board/"+boardName)
+		}
 		w.WriteHeader(308)
 	})
 
