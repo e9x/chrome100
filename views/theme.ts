@@ -1,6 +1,6 @@
 function setTheme(theme: string) {
   // max age of 400 days
-  document.cookie = `theme=${theme}; max-age=${60 * 24 * 400}; samesite=strict`;
+  document.cookie = `theme=${theme}; max-age=${60 * 24 * 400}; samesite=strict; path=/`;
 
   document.documentElement.setAttribute("data-theme", theme);
 }
