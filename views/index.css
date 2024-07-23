@@ -28,8 +28,8 @@ nav {
   box-sizing: border-box;
   top: 0;
   left: 0;
-  background-color: var(--color-canvas-default);
-  border-bottom: 1px solid var(--color-border-default);
+  background-color: var(--bgColor-default);
+  border-bottom: 1px solid var(--borderColor-default);
 }
 
 body.markdown-body {
