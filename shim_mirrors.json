@@ -81,7 +81,7 @@
   {
     "name": "kxtzownsu Mirror",
     "shims": [
-      { "url": "https://dl.kxtz.dev/ChromeOS/shims/Raw/ambassador.zip", "codename": "ambassador" },
+      { "url": "https://dl.kxtz.dev/ChromeOS/shims/ambassador.zip", "codename": "ambassador" },
       { "url": "https://dl.kxtz.dev/ChromeOS/shims/brask.zip", "codename": "brask" },
       { "url": "https://dl.kxtz.dev/ChromeOS/shims/rya.zip", "codename": "brya" },
       { "url": "https://dl.kxtz.dev/ChromeOS/shims/clapper.zip", "codename": "clapper" },
