@@ -35,6 +35,7 @@
       { "url": "https://dl.darkn.bio/api/raw/?path=/SH1mmer/relm.zip", "codename": "relm" },
       { "url": "https://dl.darkn.bio/api/raw/?path=/SH1mmer/sand.zip", "codename": "sand" },
       { "url": "https://dl.darkn.bio/api/raw/?path=/SH1mmer/sentry.zip", "codename": "sentry" },
+      { "url": "https://dl.darkn.bio/api/raw/?path=/SH1mmer/snappy.zip", "codename": "snappy" },
       { "url": "https://dl.darkn.bio/api/raw/?path=/SH1mmer/stout.zip", "codename": "stout" },
       { "url": "https://dl.darkn.bio/api/raw/?path=/SH1mmer/strongbad.zip", "codename": "strongbad" },
       { "url": "https://dl.darkn.bio/api/raw/?path=/SH1mmer/tidus.zip", "codename": "tidus" },
