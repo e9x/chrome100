@@ -1,6 +1,6 @@
 [
   {
-    "name": "kxtzownsu Mirror",
+    "name": "Kxtz Mirror",
     "shims": [
       { "url": "https://ddl.kxtz.dev/api/v1/download?path=/ChromeOS/shims/Raw/ambassador.zip", "codename": "ambassador" },
       { "url": "https://ddl.kxtz.dev/api/v1/download?path=/ChromeOS/shims/Raw/brask.zip", "codename": "brask" },
@@ -33,7 +33,7 @@
     ]
   },
   {
-    "name": "Akane's Mirror",
+    "name": "Akane Mirror",
     "shims": [
       { "url": "https://mirror.akane.network/shims/ChromeOS/shims/Raw/ambassador.zip", "codename": "ambassador" },
       { "url": "https://mirror.akane.network/shims/ChromeOS/shims/Raw/banon.zip", "codename": "banon" },
