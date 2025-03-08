@@ -267,13 +267,21 @@ func main() {
 	out = reg.ReplaceAll(out, []byte("[data-theme=$1]{$2}"))
 	os.WriteFile("static/index.css", out, 0644)
 
+	// Default values
 	port := 8080
+	host := "127.0.0.1"
 
+	// Get the PORT from environment variable
 	if envPort, err := strconv.Atoi(os.Getenv("PORT")); err == nil {
 		port = envPort
 	}
 
-	address := "127.0.0.1:" + strconv.Itoa(port)
+	// Get the HOST from environment variable
+	if envHost := os.Getenv("HOST"); envHost != "" {
+		host = envHost
+	}
+
+	address := host + ":" + strconv.Itoa(port)
 	fmt.Println("Listening on http://" + address)
 	log.Fatal(http.ListenAndServe(address, nil))
 }
